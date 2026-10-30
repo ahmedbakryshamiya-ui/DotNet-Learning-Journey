@@ -1,4 +1,7 @@
-﻿#region OOP 
+//No AI, just hard work, self-learning, and continuous improvement.
+//Every line of code I write helps me become a better developer. 
+//Slowly but surely, I'm improving my skills and building my future in software development.
+#region OOP 
 
 #region  Before started OOP
 
