@@ -4,6 +4,8 @@ Short explanations and runnable examples for the fundamentals of C#.
 
 ## Run
 
+Open [01-Basics.slnx](01-Basics.slnx) in Visual Studio, or run:
+
 ```bash
 dotnet run --project 01-Basics.csproj
 ```

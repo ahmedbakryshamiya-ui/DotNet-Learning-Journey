@@ -7,7 +7,7 @@ public static class Enumerations
 {
     public static void Run()
     {
-        person first = new()
+        PersonRecord first = new()
         {
             PersonName = "Ahmed",
             Contre = Contre.Palestine,
@@ -15,7 +15,7 @@ public static class Enumerations
             months = Months.January
         };
 
-        person second = new("Ali", Contre.Syria, Language.Arabic, Months.February);
+        PersonRecord second = new("Ali", Contre.Syria, Language.Arabic, Months.February);
 
         Display(first);
         Display(second);
@@ -27,7 +27,7 @@ public static class Enumerations
             Console.WriteLine($"{month}: {(byte)month}");
     }
 
-    private static void Display(person value)
+    private static void Display(PersonRecord value)
     {
         Console.WriteLine(
             $"Person Name: {value.PersonName}, Country: {value.Contre}, " +
@@ -66,18 +66,18 @@ public enum Language
     German
 }
 
-public class person
+public class PersonRecord
 {
     public string PersonName { get; set; } = string.Empty;
     public Contre Contre { get; set; }
     public Language language { get; set; }
     public Months months { get; set; }
 
-    public person()
+    public PersonRecord()
     {
     }
 
-    public person(string name, Contre country, Language lang, Months month)
+    public PersonRecord(string name, Contre country, Language lang, Months month)
     {
         PersonName = name;
         Contre = country;
