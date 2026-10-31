@@ -18,7 +18,7 @@ string[] answers = new string[]
 int CorrectAnswer = 0;
 
 Console.WriteLine("Welcome to the Game" +
-    "\n----------------------------" +
+    "\n---------------------------" +
     "\nPlease answer the following question ");
 
 for (int i = 0; i < questions.Length; i++)
@@ -44,7 +44,7 @@ Console.WriteLine("---------------------------" +
 
  static bool IsTheAnswerCorrect(string userInput ,string correctAnswer)
 {
-    if (string.isNullOrEmpty(userInput))
+    if (string.IsNullOrEmpty(userInput))
     { 
         throw new Exception("Answer cant be empty");
     }
@@ -52,8 +52,8 @@ Console.WriteLine("---------------------------" +
     /* if (userInput== correctAnswer) 
          return true;
 
-
        else
          return false;*/
 }
+
 

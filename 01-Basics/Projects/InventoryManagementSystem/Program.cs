@@ -1,5 +1,4 @@
 
-
 using System.Threading.Channels;
 
 int numberOfProducts =50;
@@ -16,6 +15,7 @@ while (true)
     "\n3.View product" +
     "\n4.Exit ");
 
+    
     int choice = Convert.ToInt32(Console.ReadLine());
     switch (choice)
     {
@@ -55,8 +55,8 @@ void Addproduct()
     inventory[productCount, 1] = quantity;
     inventory[productCount, 2] = price;
     productCount++;
-    Console.WriteLine("Product added succesfuly");
-    Console.WriteLine("========================");
+    Console.WriteLine("Product added successfuly");
+    Console.WriteLine("=========================");
 }
 void ViewProduct()
 {
@@ -74,7 +74,7 @@ void UpdateProduct()
 {
     Console.WriteLine("Enter product name to update");
     string searchProduct = Console.ReadLine();
-    int productID: = -1;
+    int productID = -1;
 
     if (productCount > 0)
     {
@@ -86,7 +86,7 @@ void UpdateProduct()
                 break;
             }
         }
-        if (productID!= -1)
+        if (productID != -1)
         {
             Console.WriteLine("Enter the new quantity");
             string newquantity = Console.ReadLine();
