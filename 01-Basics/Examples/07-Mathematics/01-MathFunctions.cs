@@ -1,12 +1,16 @@
 namespace Basics.Examples;
 
 /// <summary>
-/// System.Math contains common mathematical methods.
+/// System.Math provides static methods for common mathematical operations such as rounding, absolute values, powers, roots, and integer division. Math.Round uses midpoint rounding to even by default unless a different mode is supplied.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/api/system.math
+/// </remarks>
 public static class MathFunctions
 {
     public static void Run()
     {
+        // Walkthrough: System.Math provides static methods for common mathematical operations such as rounding, absolute values, powers, roots, and integer division. Math.Round uses midpoint rounding to even by default unless a different mode is supplied.
         int x = -10;
         int a = 5;
         double y = 3.5;
@@ -14,6 +18,7 @@ public static class MathFunctions
 
         Console.WriteLine($"Ceiling: {Math.Ceiling(y)}");
         Console.WriteLine($"Floor: {Math.Floor(y)}");
+        // Math.Round uses midpoint-to-even by default; pass MidpointRounding to select a different rule.
         Console.WriteLine($"Round: {Math.Round(y)}");
         Console.WriteLine($"Absolute value: {Math.Abs(x)}");
         Console.WriteLine($"Big multiplication: {Math.BigMul(a, z)}");
