@@ -7,7 +7,7 @@ public static class DefaultConstructor
 {
     public static void Run()
     {
-        Enemy enemy = new();
+        DefaultEnemy enemy = new();
         Console.WriteLine($"Health: {enemy.Health}");
     }
 }

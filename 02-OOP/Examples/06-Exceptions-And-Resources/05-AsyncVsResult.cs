@@ -1,11 +1,14 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// await lets an asynchronous operation complete without blocking the calling thread.
+/// await lets an asynchronous operation complete without blocking its asynchronous method.
 /// </summary>
 public static class AsyncVsResult
 {
-    public static async Task Run()
+    // The menu is synchronous, so this small wrapper waits for the async demonstration to finish.
+    public static void Run() => RunAsync().GetAwaiter().GetResult();
+
+    private static async Task RunAsync()
     {
         string message = await GetMessageAsync();
         Console.WriteLine(message);

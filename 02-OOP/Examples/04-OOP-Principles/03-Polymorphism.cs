@@ -7,7 +7,7 @@ public static class Polymorphism
 {
     public static void Run()
     {
-        Shape[] shapes =
+        BasicShape[] shapes =
         {
             new Circle(),
             new Triangle(),
@@ -15,7 +15,7 @@ public static class Polymorphism
             new BasicShape()
         };
 
-        foreach (Shape shape in shapes)
+        foreach (BasicShape shape in shapes)
             shape.Draw();
 
         Console.WriteLine("Compile-time polymorphism is also demonstrated by method overloading.");
