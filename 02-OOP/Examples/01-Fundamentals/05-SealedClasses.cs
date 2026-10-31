@@ -1,22 +1,44 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// A sealed class prevents other classes from inheriting from it.
+/// Demonstrates that a sealed class can be instantiated but cannot be used as a base class.
 /// </summary>
 public static class SealedClasses
 {
     public static void Run()
     {
+        // Sealed does not prevent object creation.
         FinalProduct product = new("Learning Kit");
-        Console.WriteLine(product.Name);
+        Console.WriteLine($"Product: {product.Name}");
+
+        Console.WriteLine("FinalProduct is sealed, so another class cannot inherit from it.");
     }
 }
 
+/// <summary>
+/// The sealed keyword prevents any class from deriving from FinalProduct.
+/// </summary>
 public sealed class FinalProduct
 {
-    public FinalProduct(string name) => Name = name;
+    public FinalProduct(string name)
+    {
+        // Store the name supplied when the object is created.
+        Name = name;
+    }
 
+    // A read-only property exposes the product name.
     public string Name { get; }
 }
 
-// A class cannot derive from FinalProduct because it is sealed.
+/*
+ * The following code is intentionally commented out because it causes a compile-time error:
+ *
+ * public class SpecialProduct : FinalProduct
+ * {
+ * }
+ *
+ * Compiler error: CS0509
+ * 'SpecialProduct': cannot derive from sealed type 'FinalProduct'
+ *
+ * In other words, sealed blocks inheritance at compile time, not at runtime.
+ */
