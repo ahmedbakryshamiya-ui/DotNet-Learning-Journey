@@ -1,12 +1,16 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Access modifiers control where a class member can be accessed.
+/// Access modifiers define the accessibility of types and members. public is available wherever the containing type is accessible; private is limited to the containing type; protected includes derived types; internal is limited to the assembly; protected internal means same assembly OR derived type; private protected means derived type within the same assembly.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers
+/// </remarks>
 public static class AccessModifiers
 {
     public static void Run()
     {
+        // Walkthrough: Access modifiers define the accessibility of types and members. public is available wherever the containing type is accessible; private is limited to the containing type; protected includes derived types; internal is limited to the assembly; protected internal means same assembly OR derived type; private protected means derived type within the same assembly.
         AccessDemo demo = new();
         demo.ShowPublicMember();
         demo.ShowMembersInsideTheClass();
@@ -14,6 +18,7 @@ public static class AccessModifiers
         DerivedAccessDemo child = new();
         child.ShowInheritedMembers();
 
+        // The examples below contrast access from the declaring class, a derived class, and other code.
         // private: only inside the declaring type.
         // protected: inside the declaring type and its derived types.
         // internal: anywhere in the same assembly.

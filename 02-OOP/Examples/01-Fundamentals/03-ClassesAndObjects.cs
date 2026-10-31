@@ -1,12 +1,17 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// A class is a blueprint; an object is an instance containing its own data.
+/// A class is a reference type that defines data and behavior. An object is an instance of a class; each instance has its own instance fields and properties, while methods define behavior shared by instances.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/classes
+/// </remarks>
 public static class ClassesAndObjects
 {
     public static void Run()
     {
+        // Walkthrough: A class is a reference type that defines data and behavior. An object is an instance of a class; each instance has its own instance fields and properties, while methods define behavior shared by instances.
+        // new creates a Person instance; person stores a reference to that object.
         Person person = new();
         person.FirstName = "Ahmed";
         person.LastName = "Bakry";
@@ -22,7 +27,7 @@ public static class ClassesAndObjects
 
 public class Person
 {
-    // Private fields hold the object's internal data.
+    // These instance fields belong to each Person object and keep its internal state private.
     private string _firstName = string.Empty;
     private string _lastName = string.Empty;
     private string _country = string.Empty;
