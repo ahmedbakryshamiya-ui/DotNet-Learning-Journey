@@ -87,6 +87,7 @@ Learn C# step by step through small, focused examples.
     - [Async vs .Result](02-OOP/Examples/06-Exceptions-And-Resources/05-AsyncVsResult.cs)
   - **Streams and Files**
     - [Stream I/O](02-OOP/Examples/07-Streams-And-Files/01-StreamIO.cs)
+    - [Finalizers and Destructors](02-OOP/Examples/07-Streams-And-Files/04-Finalizers.cs)
     - [IDisposable and Dispose](02-OOP/Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs)
     - [DeflateStream](02-OOP/Examples/07-Streams-And-Files/02-DeflateStream.cs)
   - **Practical Examples**

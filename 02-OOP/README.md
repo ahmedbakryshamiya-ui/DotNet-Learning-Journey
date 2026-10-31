@@ -76,7 +76,6 @@ Choose a topic from the console menu, or open its source file below.
 | Topic | What it covers |
 |---|---|
 | [Exception Handling](Examples/06-Exceptions-And-Resources/01-ExceptionHandling.cs) | try, catch, finally, and exception filters. |
-| [Finalizers and Destructors](Examples/06-Exceptions-And-Resources/02-Finalizers.cs) | Constructor/finalizer behavior and GC timing. |
 | [Documentation Comments](Examples/06-Exceptions-And-Resources/03-DocumentationComments.cs) | XML comments for IDE help and generated docs. |
 | [Async vs .Result](Examples/06-Exceptions-And-Resources/05-AsyncVsResult.cs) | Blocking .Result compared with await. |
 
