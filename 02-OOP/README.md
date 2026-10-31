@@ -90,13 +90,13 @@ Choose a topic from the console menu, or open its source file below.
 
 ### Object Relationships
 
-These three terms describe relationships between objects:
+These terms are used in UML class diagrams to describe relationships between types. They are design concepts, not C# keywords. Microsoft defines an association as a relationship between classifiers, aggregation as shared ownership, and composition as a whole-part relationship. See [Microsoft Learn: class-diagram relationships](https://learn.microsoft.com/en-us/visualstudio/modeling/scenario-change-your-design-using-visualization-and-modeling?view=visualstudio).
 
 | Relationship | Simple meaning | Explanation and example |
 |---|---|---|
-| **Association (uses-a)** | Uses a | One object uses or communicates with another object, without owning it. Example: `ReportService` uses a `Department` passed to its method. |
-| **Aggregation (has-a)** | Has a — a special Association | A special type of Association where one object has a reference to another object, but both can exist independently. Example: `EmployeeMember` receives an existing `Department` and keeps its reference. |
-| **Composition (owns-a)** | Owns a | A strong ownership relationship: one object creates and owns another object as one of its parts. Example: `CompanyWithDepartments` creates and privately keeps its `Department`. |
+| **Association (uses-a)** | Uses a | A general relationship between two types. Example: `ReportService` uses a `Department` when producing a report. |
+| **Aggregation (has-a)** | Has a — a special Association | An association that indicates shared ownership. Example: `EmployeeMember` keeps a reference to a `Department` supplied from outside. |
+| **Composition (owns-a)** | Owns a | An association that indicates a whole-part relationship. Example: `CompanyWithDepartments` creates and privately encapsulates its `Department` part. |
 
 **Remember the wording:**
 - Association = **uses-a**
