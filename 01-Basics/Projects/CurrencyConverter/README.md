@@ -20,15 +20,14 @@ dotnet run --project CurrencyConverter.csproj
 ## How it works
 
 1. The user selects a source currency and a target currency.
-2. The amount is first converted to EGP.
-3. A second switch converts the EGP amount to the selected target currency.
-4. The result is printed to the console.
+2. The amount is converted to EGP using the selected source rate.
+3. The EGP amount is divided by the selected target rate.
+4. The result is displayed using the current culture's number formatting.
 
-## Review notes
+## Current behavior and limitations
 
-- The rates are fixed constants in the source: USD = 48.5 EGP, EUR = 52.0 EGP, GBP = 60.0 EGP. They are example values, not live exchange rates.
-- `int.Parse` and `double.Parse` are used without input validation. Non-numeric input can terminate the program with a parsing exception.
-- The program checks invalid currency selections, but does not check whether the amount is positive or whether the source and target currencies are the same.
-- `double` is used for amounts. For financial applications, decimal arithmetic and a reliable rate source would be more suitable.
-
-The original Program.cs logic has been preserved in this upload.
+- Fixed example rates: USD = 48.5 EGP, EUR = 52.0 EGP, GBP = 60.0 EGP. They are not live exchange rates.
+- Currency choices are validated to the range 1–4.
+- The amount is read as `decimal` and must be greater than zero.
+- The same source and target currency is allowed and returns the original amount.
+- The rates are hard-coded; a real currency converter would need a trusted, regularly updated rate provider.

@@ -25,12 +25,9 @@ dotnet run --project QuizGame.csproj
 4. Increments the score for a correct answer.
 5. Displays the final score out of the total number of questions.
 
-## Review notes
+## Current behavior and limitations
 
-- Answer matching is exact and case-sensitive. For example, `mars` does not match `Mars`.
-- Leading or trailing spaces are not removed before comparison.
-- An empty answer throws a general Exception, which is caught and shown to the user.
+- Answers are trimmed and compared without case sensitivity; `mars` matches `Mars`.
+- An empty answer is treated as incorrect and does not stop the quiz.
 - The quiz contains three fixed questions and does not currently support replay, random question order, or configurable questions.
-- The second question asks for the biggest country without saying “by area”; the stored answer is Russia.
-
-The original Program.cs logic has been preserved in this upload.
+- The second question explicitly asks for the biggest country by area; the stored answer is Russia.

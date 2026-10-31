@@ -23,5 +23,5 @@
 <rect x="80" y="690" width="1660" height="105" rx="14" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
 <text x="110" y="730" font-family="Arial" font-size="20" font-weight="bold" fill="#243b53">Source behavior to keep in mind</text>
 <text x="110" y="765" font-family="Arial" font-size="16" fill="#334155">The Library owns fixed-size arrays of book references. Librarian and user actions pass the Library object into methods;</text>
-<text x="110" y="790" font-family="Arial" font-size="16" fill="#334155">borrowed items are currently appended to a separate array.</text>
+<text x="110" y="790" font-family="Arial" font-size="16" fill="#334155">Borrowing checks availability, then moves the selected book from books[] to borrowedBooks[].</text>
 </svg>
