@@ -1,12 +1,16 @@
 namespace Basics.Examples;
 
 /// <summary>
-/// Interpolation inserts values into text; verbatim strings preserve backslashes and line breaks.
+/// String interpolation evaluates expressions inside a string, while verbatim string literals preserve backslashes and allow line breaks. The two features can be combined.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/interpolated
+/// </remarks>
 public static class InterpolatedVerbatimStrings
 {
     public static void Run()
     {
+        // Walkthrough: String interpolation evaluates expressions inside a string, while verbatim string literals preserve backslashes and allow line breaks. The two features can be combined.
         string normalString = "Ahmed\nBakry";
         string verbatimString = @"Ahmed
 Bakry";
@@ -14,6 +18,7 @@ Bakry";
         int age = 5;
         string concatenation = "Ahmed Bakry is " + age + " years old.";
         string format = string.Format("Ahmed Bakry is {0} years old.", age);
+        // Interpolation evaluates {age} and inserts its value into the resulting string.
         string interpolation = $"Ahmed Bakry is {age} years old.";
 
         Console.WriteLine(normalString);
