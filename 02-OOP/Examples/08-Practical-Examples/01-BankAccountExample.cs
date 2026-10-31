@@ -1,12 +1,17 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// A small bank account example that combines constructors, encapsulation, and inheritance.
+/// This example combines a class, private state, constructor validation, methods, and inheritance. The balance is private so callers must change it through Deposit or Withdraw, where validation rules are applied.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/
+/// </remarks>
 public static class BankAccountExample
 {
     public static void Run()
     {
+        // Walkthrough: This example combines a class, private state, constructor validation, methods, and inheritance. The balance is private so callers must change it through Deposit or Withdraw, where validation rules are applied.
+        // Create an account with an initial balance validated by the constructor.
         BankAccount account = new("Ahmed", 5000m);
 
         account.ShowBalance();
@@ -23,6 +28,7 @@ public static class BankAccountExample
 
 public class BankAccount
 {
+    // Keep the balance private so all changes pass through the account validation methods.
     private decimal _balance;
 
     public BankAccount(string owner, decimal initialBalance)
@@ -48,6 +54,7 @@ public class BankAccount
         Console.WriteLine($"Deposited: {amount:C}");
     }
 
+    // virtual lets a derived account type customize withdrawal behavior.
     public virtual void Withdraw(decimal amount)
     {
         if (amount <= 0 || amount > _balance)
