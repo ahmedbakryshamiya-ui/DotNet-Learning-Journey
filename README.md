@@ -88,4 +88,9 @@ Learn C# step by step through small, focused examples.
     - [Bank Account Example](02-OOP/Examples/08-Practical-Examples/01-BankAccountExample.cs)
     - [Object Relationships](02-OOP/Examples/08-Practical-Examples/02-ObjectRelationships.cs)
 
+### Practical OOP projects
+
+- [Library Management System](02-OOP/Projects/LibraryManagementSystem/README.md) — [Editable diagram](02-OOP/Projects/LibraryManagementSystem/LibraryManagementSystem.drawio)
+- [Maze Game](02-OOP/Projects/MazeGame/README.md) — [Editable diagram](02-OOP/Projects/MazeGame/MazeGame.drawio)
+
 Open a topic to view its explanation and C# example.

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M0 0 L12 6 L0 12" fill="none" stroke="#45647f" stroke-width="1.6"/></marker><marker id="diamond" markerWidth="16" markerHeight="16" refX="1" refY="8" orient="auto"><path d="M1 8 L8 1 L15 8 L8 15 Z" fill="white" stroke="#45647f" stroke-width="1.5"/></marker></defs>
+<rect width="1600" height="1000" rx="26" fill="#f8fafc"/>
+<text x="65" y="65" font-family="Arial" font-size="30" font-weight="700" fill="#102a43">MAZE GAME — CLASS &amp; MOVEMENT DIAGRAM</text>
+<g fill="none" stroke="#45647f" stroke-width="2.5" marker-end="url(#arrow)">
+ <path d="M340 195 H570" stroke-dasharray="10 7"/>
+ <path d="M570 270 H440 V490 H370" marker-start="url(#diamond)"/>
+ <path d="M950 230 H1200" marker-start="url(#diamond)"/>
+ <path d="M370 495 H1120 V300" stroke-dasharray="10 7"/>
+ <path d="M850 490 H1120 V300" stroke-dasharray="10 7"/>
+ <path d="M1330 430 L1350 330" stroke-dasharray="10 7"/>
+</g>
+<g font-family="Arial" font-size="14" fill="#334155" text-anchor="middle">
+ <rect x="355" y="158" width="210" height="30" rx="7" fill="#fff" stroke="#d6e0e8"/><text x="460" y="179">creates MAZE; draw/move loop</text>
+ <rect x="385" y="350" width="180" height="30" rx="7" fill="#fff" stroke="#d6e0e8"/><text x="475" y="371">owns player reference</text>
+ <rect x="995" y="195" width="190" height="30" rx="7" fill="#fff" stroke="#d6e0e8"/><text x="1090" y="216">owns 2D object grid</text>
+ <rect x="720" y="455" width="240" height="30" rx="7" fill="#fff" stroke="#d6e0e8"/><text x="840" y="476">implements Icon / IsSold</text>
+ <rect x="925" y="505" width="180" height="30" rx="7" fill="#fff" stroke="#d6e0e8"/><text x="1015" y="526">obstacle tile</text>
+ <rect x="1290" y="355" width="180" height="30" rx="7" fill="#fff" stroke="#d6e0e8"/><text x="1380" y="376">walkable tile</text>
+</g>
+<g font-family="Arial">
+ <g><rect x="80" y="140" width="260" height="115" rx="14" fill="#f1f5f9" stroke="#64748b" stroke-width="3"/><text x="210" y="175" text-anchor="middle" font-size="22" font-weight="bold" fill="#172033">Program</text><path d="M81 190 H339" stroke="#64748b" stroke-width="2"/><text x="96" y="215" font-size="16" fill="#334155">+ Main(): void</text><text x="96" y="238" font-size="15" fill="#334155">Creates MAZE(40, 20); loop</text></g>
+ <g><rect x="570" y="115" width="380" height="235" rx="14" fill="#e9e8ff" stroke="#6458b5" stroke-width="3"/><text x="760" y="150" text-anchor="middle" font-size="22" font-weight="bold" fill="#172033">MAZE</text><path d="M571 167 H949" stroke="#6458b5" stroke-width="2"/><text x="590" y="192" font-size="15" fill="#334155">- _Width: int</text><text x="590" y="215" font-size="15" fill="#334155">- _Height: int</text><text x="590" y="238" font-size="15" fill="#334155">- _Charachter: Charachter</text><text x="590" y="261" font-size="15" fill="#334155">- _MazeobjectsArray: IMazeobject[,]</text><text x="590" y="289" font-size="15" fill="#334155">+ MAZE(width, height)</text><text x="590" y="312" font-size="15" fill="#334155">+ Drawmaze() / MovePlayer()</text><text x="590" y="335" font-size="15" fill="#334155">- UpdatePlayer(dx, dy)</text></g>
+ <g><rect x="1200" y="130" width="300" height="130" rx="14" fill="#e8f1fb" stroke="#3973a8" stroke-width="3"/><text x="1350" y="168" text-anchor="middle" font-size="20" font-weight="bold" fill="#172033">«interface» IMazeobject</text><path d="M1201 185 H1499" stroke="#3973a8" stroke-width="2"/><text x="1220" y="215" font-size="16" fill="#334155">+ Icon: char</text><text x="1220" y="240" font-size="16" fill="#334155">+ IsSold: bool</text></g>
+ <g><rect x="70" y="420" width="300" height="145" rx="14" fill="#e7f6ef" stroke="#24835b" stroke-width="3"/><text x="220" y="455" text-anchor="middle" font-size="21" font-weight="bold" fill="#172033">Charachter</text><path d="M71 473 H369" stroke="#24835b" stroke-width="2"/><text x="90" y="505" font-size="16" fill="#334155">+ Icon: '@'</text><text x="90" y="528" font-size="16" fill="#334155">+ IsSold: true</text><text x="90" y="551" font-size="16" fill="#334155">+ X / Y: int</text></g>
+ <g><rect x="570" y="430" width="280" height="120" rx="14" fill="#fce9e9" stroke="#c15454" stroke-width="3"/><text x="710" y="465" text-anchor="middle" font-size="21" font-weight="bold" fill="#172033">Wall</text><path d="M571 482 H849" stroke="#c15454" stroke-width="2"/><text x="590" y="512" font-size="16" fill="#334155">+ Icon: '#'</text><text x="590" y="535" font-size="16" fill="#334155">+ IsSold: true</text></g>
+ <g><rect x="1030" y="430" width="300" height="120" rx="14" fill="#fff4dc" stroke="#be851e" stroke-width="3"/><text x="1180" y="465" text-anchor="middle" font-size="21" font-weight="bold" fill="#172033">Empty_space</text><path d="M1031 482 H1329" stroke="#be851e" stroke-width="2"/><text x="1050" y="512" font-size="16" fill="#334155">+ Icon: ' '</text><text x="1050" y="535" font-size="16" fill="#334155">+ IsSold: false</text></g>
+</g>
+<rect x="80" y="675" width="1420" height="245" rx="16" fill="#f1f5f9" stroke="#64748b" stroke-width="2"/>
+<text x="110" y="715" font-family="Arial" font-size="21" font-weight="bold" fill="#243b53">How movement works</text>
+<g font-family="Arial" font-size="16" fill="#334155">
+ <text x="110" y="755">1. Program calls Drawmaze() first, which fills the 2D grid with Wall or Empty_space objects.</text>
+ <text x="110" y="790">2. Arrow keys map to (dx, dy); UpdatePlayer calculates the destination X/Y.</text>
+ <text x="110" y="825">3. A move is accepted only when it is inside the grid and the destination cell has IsSold == false.</text>
+ <text x="110" y="860">4. After a valid move, the player coordinates change and Drawmaze() displays the new position.</text>
+ <text x="110" y="895" font-weight="bold" fill="#9a3412">Note: the current code draws an exit opening but does not detect a win or stop the game.</text>
+</g></svg>

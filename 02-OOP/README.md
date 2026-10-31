@@ -95,3 +95,11 @@ Choose a topic from the console menu, or open its source file below.
 | [Association, Aggregation, and Composition](Examples/08-Practical-Examples/02-ObjectRelationships.cs) | Uses-a, has-a, and owns-a relationships. |
 
 [Back to repository home](../README.md)
+
+
+## Practical Projects
+
+| Project | Description | Files |
+|---|---|---|
+| [Library Management System](Projects/LibraryManagementSystem/README.md) | Classes, inheritance, library operations, and book relationships. | [Source](Projects/LibraryManagementSystem/), [Draw.io](Projects/LibraryManagementSystem/LibraryManagementSystem.drawio), [Diagram preview](Projects/LibraryManagementSystem/LibraryManagementSystem.svg) |
+| [Maze Game](Projects/MazeGame/README.md) | Interfaces, a 2D object grid, and keyboard-based movement. | [Source](Projects/MazeGame/), [Draw.io](Projects/MazeGame/MazeGame.drawio), [Diagram preview](Projects/MazeGame/MazeGame.svg) |
