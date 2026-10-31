@@ -1,8 +1,11 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Demonstrates that a sealed class can be instantiated but cannot be used as a base class.
+/// The sealed modifier prevents a class from being used as a base class. A sealed class can still be instantiated and used normally; attempting to derive from it causes a compile-time error.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/sealed
+/// </remarks>
 public static class SealedClasses
 {
     public static void Run()
@@ -18,6 +21,7 @@ public static class SealedClasses
 /// <summary>
 /// The sealed keyword prevents any class from deriving from FinalProduct.
 /// </summary>
+// The sealed modifier is what makes the inheritance attempt below illegal.
 public sealed class FinalProduct
 {
     public FinalProduct(string name)
