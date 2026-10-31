@@ -1,0 +1,12 @@
+# .NET build output
+**/bin/
+**/obj/
+
+# IDE and local user files
+**/.vs/
+*.user
+*.suo
+
+# Test and local tooling output
+**/TestResults/
+.DS_Store
