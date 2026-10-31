@@ -41,6 +41,11 @@ Learn C# step by step through small, focused examples.
     - [Jagged Multidimensional Arrays](01-Basics/Examples/08-Arrays/06-JaggedMultidimensionalArrays.cs)
     - [Ranges and Indices](01-Basics/Examples/08-Arrays/07-RangesAndIndices.cs)
 
+  - **Practical Projects**
+    - [Currency Conversion Software](01-Basics/Projects/CurrencyConverter/README.md)
+    - [Inventory Management System](01-Basics/Projects/InventoryManagementSystem/README.md)
+    - [Quiz Game](01-Basics/Projects/QuizGame/README.md)
+
 - [02 — Object-Oriented Programming](02-OOP/README.md)
   - **Fundamentals**
     - [Return Types](02-OOP/Examples/01-Fundamentals/01-ReturnTypes.cs)

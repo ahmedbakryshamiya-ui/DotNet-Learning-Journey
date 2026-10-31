@@ -85,51 +85,11 @@ Choose a topic from the console menu, or open it directly from the links below.
 | [Jagged Multidimensional Arrays](Examples/08-Arrays/06-JaggedMultidimensionalArrays.cs) | An array containing 2D arrays. |
 | [Ranges and Indices](Examples/08-Arrays/07-RangesAndIndices.cs) | Selecting positions and slices. |
 
-## Project structure
+## Practical Projects
 
-```text
-01-Basics/
-├── 01 Data Types & Conversions
-│   ├── Data Types
-│   ├── Conversions
-│   ├── Value Types
-│   ├── Reference Types
-│   └── Constants
-├── 02 Strings
-│   ├── Format and StringBuilder
-│   ├── String Manipulation
-│   ├── Escape Sequences
-│   └── Interpolated and Verbatim Strings
-├── 03 Date & Time
-│   ├── DateTime
-│   └── DateOnly and TimeOnly
-├── 04 Input & Operators
-│   ├── Get Input From User
-│   ├── Arithmetic Operators
-│   ├── Logical Operators
-│   └── Ternary Operator
-├── 05 Conditions & Validation
-│   ├── If Statement
-│   ├── Switch Statement
-│   ├── Nullable Types
-│   └── TryParse
-├── 06 Loops & Patterns
-│   ├── For Loop
-│   ├── Foreach Loop
-│   ├── While and Do-While
-│   ├── Nested Loops
-│   └── Triangle Patterns
-├── 07 Mathematics
-│   ├── Math Functions
-│   └── Random Number Generation
-├── 08 Arrays
-│   ├── Arrays
-│   ├── Traversing 1D Array
-│   ├── Bubble Sort
-│   ├── Multidimensional Arrays
-│   ├── Jagged Arrays
-│   ├── Jagged Multidimensional Arrays
-│   └── Ranges and Indices
-```
+- [Currency Conversion Software](Projects/CurrencyConverter/README.md) — [Diagram](Projects/CurrencyConverter/CurrencyConverter.drawio)
+- [Inventory Management System](Projects/InventoryManagementSystem/README.md) — [Diagram](Projects/InventoryManagementSystem/InventoryManagementSystem.drawio)
+- [Quiz Game](Projects/QuizGame/README.md) — [Diagram](Projects/QuizGame/QuizGame.drawio)
+- [All Basics projects](Projects/README.md)
 
 [Back to repository home](../README.md)
