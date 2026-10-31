@@ -47,3 +47,58 @@ jobs:
 
       - name: Build
         run: dotnet build "${{ matrix.project }}" --no-restore --configuration Release
+
+  validate-documentation:
+    name: Validate documentation and diagrams
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Validate Draw.io and SVG XML
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          files = sorted(Path(".").rglob("*.drawio")) + sorted(Path(".").rglob("*.svg"))
+          if not files:
+              raise SystemExit("No Draw.io or SVG files were found.")
+
+          for path in files:
+              ET.parse(path)
+
+          print(f"Validated {len(files)} Draw.io/SVG XML files.")
+          PY
+
+      - name: Validate local README links
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+          from urllib.parse import unquote
+
+          broken = []
+          markdown_files = sorted(Path(".").rglob("README.md"))
+
+          for readme in markdown_files:
+              content = readme.read_text(encoding="utf-8")
+              for match in re.finditer(r'!?\\[[^\\]]*\\]\\(([^)]+)\\)', content):
+                  target = match.group(1).strip().split()[0].strip("<>")
+                  if target.startswith(("http://", "https://", "mailto:", "#")):
+                      continue
+
+                  target = target.split("#", 1)[0]
+                  if not target:
+                      continue
+
+                  destination = (readme.parent / unquote(target)).resolve()
+                  if not destination.exists():
+                      broken.append(f"{readme}: {target}")
+
+          if broken:
+              print("\\n".join(broken))
+              raise SystemExit(f"Found {len(broken)} broken local README link(s).")
+
+          print(f"Validated local links in {len(markdown_files)} README files.")
+          PY
