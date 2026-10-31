@@ -18,7 +18,7 @@ public static class DateTimeExamples
         Console.WriteLine($"Now: {current}");
         Console.WriteLine($"Fixed date: {fixedDate}");
 
-        // Use MM for month and mm for minutes.
-        Console.WriteLine(current.ToString("dd/MMMM/yyyy dddd HH:mm:ss tt"));
+        // MM formats the month; mm formats minutes. hh uses a 12-hour clock and tt adds AM/PM.
+        Console.WriteLine(current.ToString("dd/MMMM/yyyy dddd hh:mm:ss tt"));
     }
 }

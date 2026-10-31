@@ -15,6 +15,7 @@ public static class RandomNumberGeneration
 
         // The maximum value passed to Next is exclusive.
         // The upper bound is exclusive, so this call can return 1 through 100.
+        // Random is for general-purpose pseudo-random values, not passwords or security tokens.
         int randomNumber = random.Next(1, 101);
         // NextDouble returns a value in [0, 1); scaling it gives a value in [0, 100).
         double randomDouble = random.NextDouble() * 100;

@@ -1,7 +1,7 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// A parameterless constructor has no parameters and initializes a new instance. If a class declares no instance constructors, C# supplies an implicit public parameterless constructor; once an instance constructor is declared, that implicit constructor is not supplied.
+/// A parameterless constructor has no parameters and initializes a new instance. If a class declares no instance constructors, C# supplies an implicit parameterless constructor: it is public for a non-abstract class and protected for an abstract class. Declaring an instance constructor suppresses this implicit constructor.
 /// </summary>
 /// <remarks>
 /// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/instance-constructors
