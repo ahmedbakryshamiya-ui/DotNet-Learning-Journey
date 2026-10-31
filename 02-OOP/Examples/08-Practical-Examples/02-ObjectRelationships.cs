@@ -1,21 +1,32 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Association, aggregation, and composition describe different relationships between objects.
+/// Demonstrates three object relationships:
+/// <list type="bullet">
+/// <item><description>Association (uses-a): ReportService temporarily uses a Department passed to a method.</description></item>
+/// <item><description>Aggregation (weak has-a): EmployeeMember stores a Department created outside it; both can exist independently.</description></item>
+/// <item><description>Composition (strong owns-a): CompanyWithDepartments creates and privately owns its Department.</description></item>
+/// </list>
 /// </summary>
 public static class ObjectRelationships
 {
     public static void Run()
     {
+        Console.WriteLine("1. ASSOCIATION — uses-a");
+        Console.WriteLine("A service uses an object but does not own it.");
         Department department = new("Engineering");
-        EmployeeMember employee = new("Ahmed", department); // Aggregation: department is supplied from outside.
+        ReportService reportService = new();
+        reportService.PrintDepartmentName(department);
+
+        Console.WriteLine("\\n2. AGGREGATION — weak has-a");
+        Console.WriteLine("An object keeps a reference to an independently created object.");
+        EmployeeMember employee = new("Ahmed", department);
         employee.ShowDepartment();
 
-        ReportService reportService = new();
-        reportService.PrintDepartmentName(department); // Association: the service uses a department.
-
+        Console.WriteLine("\\n3. COMPOSITION — strong owns-a");
+        Console.WriteLine("An object creates and privately owns one of its parts.");
         CompanyWithDepartments company = new("Example Company");
-        company.ShowOwnedDepartment(); // Composition: the company creates and owns its department.
+        company.ShowOwnedDepartment();
     }
 }
 

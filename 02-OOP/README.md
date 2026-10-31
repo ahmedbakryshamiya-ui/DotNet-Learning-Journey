@@ -90,9 +90,23 @@ Choose a topic from the console menu, or open its source file below.
 
 ### Object Relationships
 
-| Topic | What it covers |
-|---|---|
-| [Association, Aggregation, and Composition](Examples/08-Practical-Examples/02-ObjectRelationships.cs) | Uses-a, has-a, and owns-a relationships. |
+Objects can work together in different ways. Association, Aggregation, and Composition all describe relationships between objects, but they differ in ownership and lifecycle.
+
+| Relationship | Meaning | Example in this lesson |
+|---|---|---|
+| **Association** — uses-a | One object uses or communicates with another object. It does not own that object. | `ReportService.PrintDepartmentName(department)` uses a `Department` passed to the method. |
+| **Aggregation** — weak has-a | One object keeps a reference to another object, but the referenced object can exist independently. | `EmployeeMember` receives an already-created `Department` through its constructor and stores the reference. |
+| **Composition** — strong owns-a | One object creates and owns another object as one of its parts. The part is managed as part of the owner's lifecycle. | `CompanyWithDepartments` creates its own `Department` inside its constructor and keeps it private. |
+
+**How to tell them apart:** ask who creates the related object and whether it can exist independently of the object that refers to it. A method parameter is a simple example of association; an externally supplied object is used to demonstrate aggregation; an internally created, privately owned part demonstrates composition.
+
+**Run the example:**
+
+```bash
+dotnet run --project OOP.csproj
+```
+
+Choose **Association, Aggregation, and Composition** from the OOP menu, or open the [complete C# example](Examples/08-Practical-Examples/02-ObjectRelationships.cs).
 
 [Back to repository home](../README.md)
 
