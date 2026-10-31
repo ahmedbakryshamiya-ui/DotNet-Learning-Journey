@@ -22,7 +22,7 @@ Choose a topic from the console menu, or open its source file below.
 | [Access Modifiers](Examples/01-Fundamentals/02-AccessModifiers.cs) | public, private, protected, internal, protected internal, and private protected. |
 | [Classes and Objects](Examples/01-Fundamentals/03-ClassesAndObjects.cs) | Classes, fields, properties, and object creation. |
 | [Static Classes](Examples/01-Fundamentals/04-StaticClasses.cs) | Static members and non-instantiable static classes. |
-| [Sealed Classes](Examples/01-Fundamentals/05-SealedClasses.cs) | Preventing inheritance. |
+| [Sealed Classes](Examples/01-Fundamentals/05-SealedClasses.cs) | Preventing inheritance at compile time by using the sealed keyword. |
 | [Partial Classes](Examples/01-Fundamentals/06-PartialClasses.cs) | One class split across source files. |
 | [Employee properties](Examples/01-Fundamentals/Employee.Properties.cs) | The properties part of the original partial Employee class. |
 | [Employee methods](Examples/01-Fundamentals/Employee.Methods.cs) | The methods part of the original partial Employee class. |
@@ -43,7 +43,7 @@ Choose a topic from the console menu, or open its source file below.
 
 | Topic | What it covers |
 |---|---|
-| [Default Constructor](Examples/03-Constructors/01-DefaultConstructor.cs) | Initializing an object without arguments. |
+| [Default Constructor](Examples/03-Constructors/01-DefaultConstructor.cs) | An explicitly declared parameterless constructor that initializes an object. |
 | [Parameterized Constructor](Examples/03-Constructors/02-ParameterizedConstructor.cs) | Passing initial values to a constructor. |
 | [Copy Constructor](Examples/03-Constructors/03-CopyConstructor.cs) | Creating an object from another object. |
 | [Private Constructor](Examples/03-Constructors/04-PrivateConstructor.cs) | Restricting direct object creation. |
@@ -78,7 +78,6 @@ Choose a topic from the console menu, or open its source file below.
 | [Exception Handling](Examples/06-Exceptions-And-Resources/01-ExceptionHandling.cs) | try, catch, finally, and exception filters. |
 | [Finalizers and Destructors](Examples/06-Exceptions-And-Resources/02-Finalizers.cs) | Constructor/finalizer behavior and GC timing. |
 | [Documentation Comments](Examples/06-Exceptions-And-Resources/03-DocumentationComments.cs) | XML comments for IDE help and generated docs. |
-| [IDisposable and Dispose](Examples/06-Exceptions-And-Resources/04-IDisposableAndDispose.cs) | HttpClient cleanup using IDisposable and using. |
 | [Async vs .Result](Examples/06-Exceptions-And-Resources/05-AsyncVsResult.cs) | Blocking .Result compared with await. |
 
 ### Streams and Files
@@ -86,6 +85,7 @@ Choose a topic from the console menu, or open its source file below.
 | Topic | What it covers |
 |---|---|
 | [Stream I/O](Examples/07-Streams-And-Files/01-StreamIO.cs) | FileStream byte examples, StreamWriter, StreamReader, and File helpers. |
+| [IDisposable and Dispose](Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs) | Three resource-cleanup patterns: manual Dispose, try/finally, and using. |
 | [DeflateStream](Examples/07-Streams-And-Files/02-DeflateStream.cs) | Compressing and restoring data. |
 
 ### Object Relationships
