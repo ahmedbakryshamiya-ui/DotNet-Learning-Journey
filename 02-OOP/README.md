@@ -4,6 +4,8 @@ Short explanations and runnable C# examples for the topics in the original OOP n
 
 ## Run
 
+Open [OOP.slnx](OOP.slnx) in Visual Studio, or run the project directly:
+
 ```bash
 dotnet run --project OOP.csproj
 ```

@@ -12,6 +12,12 @@ internal partial class Employee
 
     public void DisplayTimeSheet()
     {
+        Displaytimesheet();
+    }
+
+    // Original method name retained from the source archive.
+    public void Displaytimesheet()
+    {
         Console.WriteLine($"Displaying time sheet for {EmployeeName}.");
     }
 
