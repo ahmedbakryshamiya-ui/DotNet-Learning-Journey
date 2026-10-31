@@ -1,12 +1,16 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Demonstrates FileStream, StreamWriter, StreamReader, and the File helper methods.
+/// A stream is an abstraction for reading and writing bytes. FileStream reads and writes file bytes; StreamWriter converts characters to bytes using an encoding, and StreamReader converts bytes into characters. Dispose streams when finished so file handles and buffers are released.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/standard/io/
+/// </remarks>
 public static class StreamIO
 {
     public static void Run()
     {
+        // Walkthrough: A stream is an abstraction for reading and writing bytes. FileStream reads and writes file bytes; StreamWriter converts characters to bytes using an encoding, and StreamReader converts bytes into characters. Dispose streams when finished so file handles and buffers are released.
         string folder = Path.Combine(Path.GetTempPath(), "OOP-Learning-Streams");
         Directory.CreateDirectory(folder);
 
@@ -57,6 +61,7 @@ public static class StreamIO
         int bytesToRead = data.Length;
         int bytesRead = 0;
 
+        // Read may return fewer bytes than requested, so keep reading until the buffer is full or EOF is reached.
         while (bytesToRead > 0)
         {
             int count = source.Read(data, bytesRead, bytesToRead);
@@ -93,6 +98,7 @@ public static class StreamIO
     {
         Console.WriteLine("\nStreamWriter Example 1:");
 
+        // StreamWriter encodes characters as bytes and flushes/disposes the file stream at scope exit.
         using StreamWriter writer = new(path);
         writer.WriteLine("Hi");
         writer.Write("I'm Ahmed");
@@ -115,6 +121,7 @@ public static class StreamIO
 
         using (StreamReader reader = new(path))
         {
+            // Peek checks whether another character is available without consuming it.
             while (reader.Peek() >= 0)
                 Console.WriteLine((char)reader.Read());
         }
@@ -123,6 +130,7 @@ public static class StreamIO
         using (StreamReader reader = new(path))
         {
             string? line;
+            // ReadLine returns null when the end of the stream is reached.
             while ((line = reader.ReadLine()) is not null)
                 Console.WriteLine(line);
         }

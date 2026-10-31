@@ -3,9 +3,11 @@ using System.Text;
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Demonstrates three ways to release resources that implement IDisposable:
-/// manual Dispose, try/finally, and the using statement.
+/// IDisposable provides a deterministic cleanup method named Dispose for releasing resources such as file handles. Manual Dispose and try/finally are valid patterns; using is usually preferred because the compiler ensures Dispose is called when control leaves the scope, including exceptional exits.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/implementing-dispose
+/// </remarks>
 public static class DisposePattern
 {
     /// <summary>
@@ -13,6 +15,7 @@ public static class DisposePattern
     /// </summary>
     public static void Run()
     {
+        // Walkthrough: IDisposable provides a deterministic cleanup method named Dispose for releasing resources such as file handles. Manual Dispose and try/finally are valid patterns; using is usually preferred because the compiler ensures Dispose is called when control leaves the scope, including exceptional exits.
         string folder = Path.Combine(Path.GetTempPath(), "OOP-Learning-IDisposable");
         Directory.CreateDirectory(folder);
 
@@ -40,7 +43,7 @@ public static class DisposePattern
         resource.Write("Disposed by calling Dispose() manually.");
 
         // The caller is responsible for calling Dispose.
-        resource.Dispose();
+        // Dispose releases the FileStream owned by TextFileResource.
 
         // Calling Dispose again is safe because the class makes disposal idempotent.
         resource.Dispose();
@@ -63,6 +66,7 @@ public static class DisposePattern
         }
         finally
         {
+            // finally guarantees cleanup even if writing throws.
             // finally runs whether the try block succeeds or throws an exception.
             resource.Dispose();
         }
@@ -77,6 +81,7 @@ public static class DisposePattern
 
         // C# automatically calls Dispose when execution leaves this using block,
         // including when an exception occurs.
+        // using is generally clearest because it guarantees cleanup automatically.
         using (TextFileResource resource = new(path))
         {
             resource.Write("Disposed automatically by the using statement.");
@@ -124,6 +129,7 @@ public sealed class TextFileResource : IDisposable
         if (_disposed)
             return;
 
+        // Forward cleanup to the FileStream owned by this object.
         _stream.Dispose();
         _disposed = true;
 
