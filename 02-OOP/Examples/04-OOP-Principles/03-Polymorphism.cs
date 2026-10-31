@@ -1,12 +1,16 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Polymorphism means one base type can represent objects with different implementations.
+/// Polymorphism allows a base-class reference to refer to a derived-class object and lets overridden virtual members dispatch according to the object's runtime type. Method overloading is a separate compile-time feature selected from the available parameter lists.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/polymorphism
+/// </remarks>
 public static class Polymorphism
 {
     public static void Run()
     {
+        // Walkthrough: Polymorphism allows a base-class reference to refer to a derived-class object and lets overridden virtual members dispatch according to the object's runtime type. Method overloading is a separate compile-time feature selected from the available parameter lists.
         Shape[] shapes =
         {
             new Circle(),
@@ -15,6 +19,7 @@ public static class Polymorphism
             new Shape()
         };
 
+        // Every item is referenced as Shape, but the override for its runtime type is executed.
         foreach (Shape shape in shapes)
             shape.Draw();
 
@@ -36,6 +41,7 @@ public static class Polymorphism
 
 public class Shape
 {
+    // virtual permits derived classes to replace this implementation with override.
     public virtual void Draw()
     {
         Console.WriteLine("A basic shape is created.");

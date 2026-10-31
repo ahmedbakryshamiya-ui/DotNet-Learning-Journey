@@ -1,13 +1,16 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Encapsulation protects data and exposes only the operations that are needed.
-/// This example also shows member access from derived classes.
+/// Encapsulation combines data and the operations that work on it while controlling access to implementation details. Access modifiers determine which callers can use fields and methods; private members remain inside the declaring type, while protected members are available to derived types.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/
+/// </remarks>
 public static class Encapsulation
 {
     public static void Run()
     {
+        // Walkthrough: Encapsulation combines data and the operations that work on it while controlling access to implementation details. Access modifiers determine which callers can use fields and methods; private members remain inside the declaring type, while protected members are available to derived types.
         CatAccessDemo cat = new();
         cat.FeedCat();
         cat.ShowCatAccess();
@@ -26,6 +29,7 @@ public static class Encapsulation
 
 public class AnimalAccessBase
 {
+    // The private field is hidden; callers use the public/protected methods instead.
     private string _privateVariable = "private data";
     public string PublicVariable = "public data";
     protected string ProtectedVariable = "protected data";
