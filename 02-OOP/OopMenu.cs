@@ -41,9 +41,9 @@ public static class OopMenu
         ("Exception Handling", ExceptionHandling.Run),
         ("Finalizers and Destructors", Finalizers.Run),
         ("Documentation Comments", DocumentationComments.Run),
-        ("IDisposable and Dispose", DisposePattern.Run),
         ("Async vs .Result", AsyncVsResult.Run),
         ("Stream I/O", StreamIO.Run),
+        ("IDisposable and Dispose", DisposePattern.Run),
         ("DeflateStream", DeflateStreamExamples.Run),
         ("Association, Aggregation, and Composition", ObjectRelationships.Run)
     };
