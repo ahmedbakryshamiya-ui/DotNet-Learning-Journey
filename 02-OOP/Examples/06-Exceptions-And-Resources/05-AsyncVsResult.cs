@@ -1,7 +1,7 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// await asynchronously waits for a Task without blocking the current thread while the operation is incomplete. Task<TResult>.Result synchronously blocks the caller until the task completes and can cause deadlocks in some synchronization contexts; prefer await in asynchronous code.
+/// await asynchronously waits for a Task without blocking the current thread while the operation is incomplete. <c>Task&lt;TResult&gt;.Result</c> synchronously blocks the caller until the task completes and can cause deadlocks in some synchronization contexts; prefer <c>await</c> in asynchronous code.
 /// </summary>
 /// <remarks>
 /// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/

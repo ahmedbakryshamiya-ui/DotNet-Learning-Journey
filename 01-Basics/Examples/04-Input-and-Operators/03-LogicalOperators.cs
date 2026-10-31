@@ -1,7 +1,7 @@
 namespace Basics.Examples;
 
 /// <summary>
-/// The Boolean operators && and || use conditional evaluation: the right operand is evaluated only when needed. The ! operator negates a Boolean value.
+/// The Boolean operators &amp;&amp; and || use conditional evaluation: the right operand is evaluated only when needed. The ! operator negates a Boolean value.
 /// </summary>
 /// <remarks>
 /// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/boolean-logical-operators

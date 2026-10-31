@@ -42,10 +42,10 @@ public static class DisposePattern
         // Use the resource before releasing it.
         resource.Write("Disposed by calling Dispose() manually.");
 
-        // The caller is responsible for calling Dispose.
-        // Dispose releases the FileStream owned by TextFileResource.
+        // The caller is responsible for releasing the owned FileStream.
+        resource.Dispose();
 
-        // Calling Dispose again is safe because the class makes disposal idempotent.
+        // Dispose is idempotent in this implementation, so a repeated call is safe.
         resource.Dispose();
     }
 
@@ -66,8 +66,7 @@ public static class DisposePattern
         }
         finally
         {
-            // finally guarantees cleanup even if writing throws.
-            // finally runs whether the try block succeeds or throws an exception.
+            // finally guarantees cleanup whether the try block succeeds or throws.
             resource.Dispose();
         }
     }
@@ -79,9 +78,7 @@ public static class DisposePattern
     {
         Console.WriteLine("\n3. using statement:");
 
-        // C# automatically calls Dispose when execution leaves this using block,
-        // including when an exception occurs.
-        // using is generally clearest because it guarantees cleanup automatically.
+        // C# automatically calls Dispose when execution leaves this block, including on exceptional exit.
         using (TextFileResource resource = new(path))
         {
             resource.Write("Disposed automatically by the using statement.");

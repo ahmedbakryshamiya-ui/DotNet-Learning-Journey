@@ -37,7 +37,7 @@ public static class WhileDoWhileExamples
             Console.WriteLine($"{i} * {multiplier} = {i * multiplier}");
             i++;
         }
-        // Test the condition before each pass, so the loop can run zero or more times.
+        // Check after each pass; another iteration runs only while the condition remains true.
         while (i <= 12);
     }
 }
