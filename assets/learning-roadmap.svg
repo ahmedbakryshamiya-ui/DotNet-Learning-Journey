@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="470" viewBox="0 0 1120 470" role="img" aria-labelledby="title desc">
+<title id="title">.NET Learning Journey roadmap</title>
+<desc id="desc">Two isometric blocks represent the Basics and OOP learning paths.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#dbeafe"/></linearGradient>
+  <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#0f172a" flood-opacity=".18"/></filter>
+</defs>
+<rect width="1120" height="470" rx="28" fill="url(#bg)"/>
+<text x="560" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="bold" fill="#0f172a">.NET LEARNING JOURNEY</text>
+<g filter="url(#shadow)">
+  <polygon points="405,82 715,82 748,108 438,108" fill="#0f172a"/>
+  <polygon points="405,82 438,108 438,168 405,142" fill="#1e293b"/>
+  <polygon points="438,108 748,108 748,168 438,168" fill="#334155"/>
+  <text x="593" y="135" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="bold" fill="#fff">LEARNING PATHS</text>
+</g>
+<g fill="none" stroke="#94a3b8" stroke-width="5" stroke-linejoin="round">
+  <path d="M560 168 V225 H300 V275"/>
+  <path d="M560 225 H820 V275"/>
+</g>
+<g filter="url(#shadow)" font-family="Arial,sans-serif" text-anchor="middle">
+  <polygon points="130,275 450,275 480,300 160,300" fill="#60a5fa"/>
+  <polygon points="130,275 160,300 160,395 130,370" fill="#1d4ed8"/>
+  <polygon points="160,300 480,300 480,395 160,395" fill="#2563eb"/>
+  <text x="320" y="340" font-size="25" font-weight="bold" fill="#fff">01 · C# BASICS</text>
+  <text x="320" y="370" font-size="16" fill="#dbeafe">Core language topics</text>
+
+  <polygon points="660,275 980,275 1010,300 690,300" fill="#c4b5fd"/>
+  <polygon points="660,275 690,300 690,395 660,370" fill="#5b21b6"/>
+  <polygon points="690,300 1010,300 1010,395 690,395" fill="#7c3aed"/>
+  <text x="850" y="340" font-size="25" font-weight="bold" fill="#fff">02 · OOP</text>
+  <text x="850" y="370" font-size="16" fill="#ede9fe">Object-oriented concepts</text>
+</g>
+<text x="560" y="440" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475569">Open a path in the README to browse its topics and examples.</text>
+</svg>
