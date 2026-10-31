@@ -85,6 +85,7 @@ Choose a topic from the console menu, or open its source file below.
 | Topic | What it covers |
 |---|---|
 | [Stream I/O](Examples/07-Streams-And-Files/01-StreamIO.cs) | FileStream byte examples, StreamWriter, StreamReader, and File helpers. |
+| [Finalizers and Destructors](Examples/07-Streams-And-Files/04-Finalizers.cs) | Garbage-collector finalization, its nondeterministic timing, and why IDisposable is preferred for predictable cleanup. |
 | [IDisposable and Dispose](Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs) | Three resource-cleanup patterns: manual Dispose, try/finally, and using. |
 | [DeflateStream](Examples/07-Streams-And-Files/02-DeflateStream.cs) | Compressing and restoring data. |
 

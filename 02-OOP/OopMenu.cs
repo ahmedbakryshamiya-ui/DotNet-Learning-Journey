@@ -39,10 +39,10 @@ public static class OopMenu
         ("Enumerations", Enumerations.Run),
         ("This Keyword", ThisKeyword.Run),
         ("Exception Handling", ExceptionHandling.Run),
-        ("Finalizers and Destructors", Finalizers.Run),
         ("Documentation Comments", DocumentationComments.Run),
         ("Async vs .Result", AsyncVsResult.Run),
         ("Stream I/O", StreamIO.Run),
+        ("Finalizers and Destructors", Finalizers.Run),
         ("IDisposable and Dispose", DisposePattern.Run),
         ("DeflateStream", DeflateStreamExamples.Run),
         ("Association, Aggregation, and Composition", ObjectRelationships.Run)

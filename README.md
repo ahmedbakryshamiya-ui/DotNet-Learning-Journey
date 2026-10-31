@@ -82,7 +82,7 @@ Learn C# step by step through small, focused examples.
     - [Interfaces](02-OOP/Examples/05-Types-And-Keywords/06-Interfaces.cs)
   - **Exceptions and Resources**
     - [Exception Handling](02-OOP/Examples/06-Exceptions-And-Resources/01-ExceptionHandling.cs)
-    - [Finalizers and Destructors](02-OOP/Examples/06-Exceptions-And-Resources/02-Finalizers.cs)
+    - [Finalizers and Destructors](02-OOP/Examples/07-Streams-And-Files/04-Finalizers.cs)
     - [Documentation Comments](02-OOP/Examples/06-Exceptions-And-Resources/03-DocumentationComments.cs)
     - [Async vs .Result](02-OOP/Examples/06-Exceptions-And-Resources/05-AsyncVsResult.cs)
   - **Streams and Files**
