@@ -84,10 +84,10 @@ Learn C# step by step through small, focused examples.
     - [Exception Handling](02-OOP/Examples/06-Exceptions-And-Resources/01-ExceptionHandling.cs)
     - [Finalizers and Destructors](02-OOP/Examples/06-Exceptions-And-Resources/02-Finalizers.cs)
     - [Documentation Comments](02-OOP/Examples/06-Exceptions-And-Resources/03-DocumentationComments.cs)
-    - [IDisposable and Dispose](02-OOP/Examples/06-Exceptions-And-Resources/04-IDisposableAndDispose.cs)
     - [Async vs .Result](02-OOP/Examples/06-Exceptions-And-Resources/05-AsyncVsResult.cs)
   - **Streams and Files**
     - [Stream I/O](02-OOP/Examples/07-Streams-And-Files/01-StreamIO.cs)
+    - [IDisposable and Dispose](02-OOP/Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs)
     - [DeflateStream](02-OOP/Examples/07-Streams-And-Files/02-DeflateStream.cs)
   - **Practical Examples**
     - [Bank Account Example](02-OOP/Examples/08-Practical-Examples/01-BankAccountExample.cs)
