@@ -3,28 +3,28 @@ namespace OOPLearning.Examples;
 /// <summary>
 /// Demonstrates three object relationships:
 /// <list type="bullet">
-/// <item><description>Association (uses-a): ReportService temporarily uses a Department passed to a method.</description></item>
-/// <item><description>Aggregation (weak has-a): EmployeeMember stores a Department created outside it; both can exist independently.</description></item>
-/// <item><description>Composition (strong owns-a): CompanyWithDepartments creates and privately owns its Department.</description></item>
+/// <item><description>Association (uses-a): one object uses another object without owning it.</description></item>
+/// <item><description>Aggregation (has-a): a special Association where the referenced objects can exist independently.</description></item>
+/// <item><description>Composition (owns-a): one object creates and strongly owns another object as a part.</description></item>
 /// </list>
 /// </summary>
 public static class ObjectRelationships
 {
     public static void Run()
     {
-        Console.WriteLine("1. ASSOCIATION — uses-a");
-        Console.WriteLine("A service uses an object but does not own it.");
+        Console.WriteLine("1. ASSOCIATION (uses-a)");
+        Console.WriteLine("One object uses another object without owning it.");
         Department department = new("Engineering");
         ReportService reportService = new();
         reportService.PrintDepartmentName(department);
 
-        Console.WriteLine("\n2. AGGREGATION — weak has-a");
-        Console.WriteLine("An object keeps a reference to an independently created object.");
+        Console.WriteLine("\n2. AGGREGATION (has-a) — a special Association");
+        Console.WriteLine("One object has a reference to another, and both can exist independently.");
         EmployeeMember employee = new("Ahmed", department);
         employee.ShowDepartment();
 
-        Console.WriteLine("\n3. COMPOSITION — strong owns-a");
-        Console.WriteLine("An object creates and privately owns one of its parts.");
+        Console.WriteLine("\n3. COMPOSITION (owns-a)");
+        Console.WriteLine("One object creates and owns another object as one of its parts.");
         CompanyWithDepartments company = new("Example Company");
         company.ShowOwnedDepartment();
     }

@@ -90,30 +90,17 @@ Choose a topic from the console menu, or open its source file below.
 
 ### Object Relationships
 
-Objects can work together in different ways. Association, Aggregation, and Composition all describe relationships between objects, but they differ in ownership and lifecycle.
+These three terms describe relationships between objects:
 
-| Relationship | Meaning | Example in this lesson |
+| Relationship | Simple meaning | Explanation and example |
 |---|---|---|
-| **Association** — uses-a | One object uses or communicates with another object. It does not own that object. | `ReportService.PrintDepartmentName(department)` uses a `Department` passed to the method. |
-| **Aggregation** — weak has-a | One object keeps a reference to another object, but the referenced object can exist independently. | `EmployeeMember` receives an already-created `Department` through its constructor and stores the reference. |
-| **Composition** — strong owns-a | One object creates and owns another object as one of its parts. The part is managed as part of the owner's lifecycle. | `CompanyWithDepartments` creates its own `Department` inside its constructor and keeps it private. |
+| **Association (uses-a)** | Uses a | One object uses or communicates with another object, without owning it. Example: `ReportService` uses a `Department` passed to its method. |
+| **Aggregation (has-a)** | Has a — a special Association | A special type of Association where one object has a reference to another object, but both can exist independently. Example: `EmployeeMember` receives an existing `Department` and keeps its reference. |
+| **Composition (owns-a)** | Owns a | A strong ownership relationship: one object creates and owns another object as one of its parts. Example: `CompanyWithDepartments` creates and privately keeps its `Department`. |
 
-**How to tell them apart:** ask who creates the related object and whether it can exist independently of the object that refers to it. A method parameter is a simple example of association; an externally supplied object is used to demonstrate aggregation; an internally created, privately owned part demonstrates composition.
+**Remember the wording:**
+- Association = **uses-a**
+- Aggregation = **has-a** (a special Association)
+- Composition = **owns-a**
 
-**Run the example:**
-
-```bash
-dotnet run --project OOP.csproj
-```
-
-Choose **Association, Aggregation, and Composition** from the OOP menu, or open the [complete C# example](Examples/08-Practical-Examples/02-ObjectRelationships.cs).
-
-[Back to repository home](../README.md)
-
-
-## Practical Projects
-
-| Project | Description | Files |
-|---|---|---|
-| [Library Management System](Projects/LibraryManagementSystem/README.md) | Classes, inheritance, library operations, and book relationships. | [Source](Projects/LibraryManagementSystem/), [Draw.io](Projects/LibraryManagementSystem/LibraryManagementSystem.drawio), [Diagram preview](Projects/LibraryManagementSystem/LibraryManagementSystem.svg) |
-| [Maze Game](Projects/MazeGame/README.md) | Interfaces, a 2D object grid, and keyboard-based movement. | [Source](Projects/MazeGame/), [Draw.io](Projects/MazeGame/MazeGame.drawio), [Diagram preview](Projects/MazeGame/MazeGame.svg) |
+**Run the example:** choose **Association, Aggregation, and Composition** from the OOP console menu, or open the [C# example](Examples/08-Practical-Examples/02-ObjectRelationships.cs).
