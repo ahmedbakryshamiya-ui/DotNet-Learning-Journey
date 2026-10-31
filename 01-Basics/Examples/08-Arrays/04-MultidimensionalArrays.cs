@@ -1,14 +1,19 @@
 namespace Basics.Examples;
 
 /// <summary>
-/// Multidimensional arrays use more than one index, such as row and column.
+/// A rectangular multidimensional array has a fixed number of dimensions and uses comma-separated indexes. GetLength(dimension) returns the size along a specified dimension.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/arrays
+/// </remarks>
 public static class MultidimensionalArrays
 {
     public static void Run()
     {
+        // Walkthrough: A rectangular multidimensional array has a fixed number of dimensions and uses comma-separated indexes. GetLength(dimension) returns the size along a specified dimension.
         int[] oneDimensional = { 2, 3, 5, 6, 7 };
 
+        // A rectangular 2D array is indexed with [row, column].
         int[,] matrix =
         {
             { 1, 2, 3 },
@@ -28,6 +33,7 @@ public static class MultidimensionalArrays
             Console.WriteLine();
         }
 
+        // A 3D array adds a third index; all dimensions belong to one rectangular array.
         int[,,] matrix3D =
         {
             { { 1, 2, 3 }, { 4, 5, 6 } },

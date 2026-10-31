@@ -1,12 +1,17 @@
 namespace Basics.Examples;
 
 /// <summary>
-/// A jagged array can also contain multidimensional arrays.
+/// A jagged array can contain rectangular multidimensional arrays as its elements. The outer index selects an inner array, and the remaining indexes select an element inside that array.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/arrays
+/// </remarks>
 public static class JaggedMultidimensionalArrays
 {
     public static void Run()
     {
+        // Walkthrough: A jagged array can contain rectangular multidimensional arrays as its elements. The outer index selects an inner array, and the remaining indexes select an element inside that array.
+        // The outer array contains rectangular two-dimensional int arrays.
         int[][,] values =
         {
             new int[,] { { 1, 2 }, { 3, 4 } },

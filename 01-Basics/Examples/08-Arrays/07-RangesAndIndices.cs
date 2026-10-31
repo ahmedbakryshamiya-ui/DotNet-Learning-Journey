@@ -1,12 +1,16 @@
 namespace Basics.Examples;
 
 /// <summary>
-/// An Index selects one position; a Range selects a portion of a collection.
+/// The index-from-end operator (^) counts backward from the end of a collection. A range (start..end) selects elements from the inclusive start up to, but not including, the end.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators#range-operator-
+/// </remarks>
 public static class RangesAndIndices
 {
     public static void Run()
     {
+        // Walkthrough: The index-from-end operator (^) counts backward from the end of a collection. A range (start..end) selects elements from the inclusive start up to, but not including, the end.
         string[] cities = { "Alex", "Cairo", "KFS", "Nasr City" };
 
         Console.WriteLine($"Last city: {cities[^1]}");
@@ -17,6 +21,7 @@ public static class RangesAndIndices
             Console.WriteLine(city);
 
         Console.WriteLine("Selected range:");
+        // The start index is included; the end index is excluded, so this selects elements 1 and 2.
         string[] visitedCities = cities[1..3];
         foreach (string city in visitedCities)
             Console.WriteLine(city);
