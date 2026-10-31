@@ -83,7 +83,7 @@ jobs:
 
           for readme in markdown_files:
               content = readme.read_text(encoding="utf-8")
-              for match in re.finditer(r'!?\\[[^\\]]*\\]\\(([^)]+)\\)', content):
+              for match in re.finditer(r'!?\[[^\]]*\]\(([^)]+)\)', content):
                   target = match.group(1).strip().split()[0].strip("<>")
                   if target.startswith(("http://", "https://", "mailto:", "#")):
                       continue
@@ -97,7 +97,7 @@ jobs:
                       broken.append(f"{readme}: {target}")
 
           if broken:
-              print("\\n".join(broken))
+              print("\n".join(broken))
               raise SystemExit(f"Found {len(broken)} broken local README link(s).")
 
           print(f"Validated local links in {len(markdown_files)} README files.")
