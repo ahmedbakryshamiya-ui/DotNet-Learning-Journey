@@ -1,0 +1,49 @@
+name: .NET Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build ${{ matrix.name }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: Basics learning menu
+            project: 01-Basics/01-Basics.csproj
+          - name: OOP learning menu
+            project: 02-OOP/OOP.csproj
+          - name: Currency Converter
+            project: 01-Basics/Projects/CurrencyConverter/CurrencyConverter.csproj
+          - name: Inventory Management System
+            project: 01-Basics/Projects/InventoryManagementSystem/InventoryManagementSystem.csproj
+          - name: Quiz Game
+            project: 01-Basics/Projects/QuizGame/QuizGame.csproj
+          - name: Library Management System
+            project: 02-OOP/Projects/LibraryManagementSystem/LibraryManagementSystem.csproj
+          - name: Maze Game
+            project: 02-OOP/Projects/MazeGame/MazeGame.csproj
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET 10
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore "${{ matrix.project }}"
+
+      - name: Build
+        run: dotnet build "${{ matrix.project }}" --no-restore --configuration Release

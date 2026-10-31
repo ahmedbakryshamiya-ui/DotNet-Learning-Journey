@@ -4,5 +4,7 @@
     <TargetFramework>net10.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <!-- Keep standalone practice projects out of this learning-menu assembly. -->
+    <Compile Remove="Projects/**/*.cs" />
   </PropertyGroup>
 </Project>
