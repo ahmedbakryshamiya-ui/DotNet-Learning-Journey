@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace MAZE_GAME;
 
-namespace MAZE_GAME
+/// <summary>
+/// Represents the player and the player's current grid coordinates.
+/// </summary>
+internal sealed class Charachter : IMazeobject
 {
-    internal class Charachter : IMazeobject
-    {
-        public char Icon { get => '@'; }
-        public bool IsSold { get => true; }
-        public int X { get; set; }
-        public int Y { get; set; }
-    }
+    public char Icon => '@';
+    public bool IsSold => true;
+    public int X { get; set; }
+    public int Y { get; set; }
 }

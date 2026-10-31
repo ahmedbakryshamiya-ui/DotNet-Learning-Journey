@@ -1,118 +1,142 @@
-﻿namespace Library_management_system
+namespace Library_management_system;
+
+internal static class Program
 {
-    internal class Program
+    private static void Main()
     {
-        static void Main(string[] args)
+        Library library = new();
+
+        while (true)
         {
-            Console.WriteLine("Welcome to the Library System\n" +
-                              "---------------------------------------------"+
-                              "\nAre you a Librarian or a Regular user(L/R)?");
-            Library library = new Library();
-            char userType = Console.ReadLine().ToUpper()[0];
+            Console.WriteLine("\nLibrary Management System");
+            Console.WriteLine("-------------------------");
+            Console.Write("Are you a Librarian or a Regular user (L/R), or Q to quit? ");
+            char role = ReadChoice();
 
-
-            if (userType == 'L')
+            switch (role)
             {
-                // Librarian functionality
-                Console.WriteLine("Welcome Librarian,Enter your name:");
-                string librarianName = Console.ReadLine();
-                Librarian l1 = new Librarian(librarianName);
-                Console.WriteLine($"Welcome {l1.Name}");
-                while (true)
-                {
-                    Console.WriteLine("Please select an option:\nAdd Book(A)\nRemove Book(R)\nDisplay Book(D)");
-                    char choice = Console.ReadLine().ToUpper()[0];
-                    switch (choice)
-                    {
-                        case 'A':
-                            Console.WriteLine("Enter book details:(Title, Author, Year)");
-                            string bookName = Console.ReadLine();
-                            string bookAuthor = Console.ReadLine();
-                            int bookYear = Convert.ToInt32(Console.ReadLine());
-                            Book book = new Book()
-                            {
-                                Title = bookName,
-                                Author = bookAuthor,
-                                Year = bookYear
-                            };
-                            l1.AddBook(book, library);
-                            break;
-                        case 'R':
-                            Console.WriteLine("Enter the title of the book you want to remove:");
-                            bookName = Console.ReadLine();
-                            
-                            book = new Book()
-                            {
-                                Title = bookName,
-                                
-                            };
-                            l1.RemoveBook(book, library);
-
-
-                            break;
-                        case 'D':
-                            Console.WriteLine("The book list:");
-                            l1.DisplayBooks(library);
-                            break;
-                        default:
-                            Environment.Exit(0);
-                            break;
-                    }
-                }
-                
-
-
-
-
+                case 'L':
+                    RunLibrarianMenu(library);
+                    break;
+                case 'R':
+                    RunRegularUserMenu(library);
+                    break;
+                case 'Q':
+                    return;
+                default:
+                    Console.WriteLine("Please enter L, R, or Q.");
+                    break;
             }
-            else if (userType == 'R')
-            {
-                // user functionality
-                
-                Console.WriteLine("Welcome User,Enter your name:");
-                string userName = Console.ReadLine();
-                LibraryUser r1 = new LibraryUser(userName);
-                Console.WriteLine($"Welcome {r1.Name}");
-                while (true)
-                {
-                    Console.WriteLine("Please select an option:\nBorrow Book(B)\nDisplay Book(D)");
-                    char choice = Console.ReadLine().ToUpper()[0];
-                    switch (choice)
-                    {
-                        case 'D':
-                            Console.WriteLine("The book list:");
-                            r1.DisplayBooks(library);
-                            break;
-
-                        case 'B':
-                            Console.WriteLine("Enter book details to borrow:(Title, Author, Year)");
-                            string bookName = Console.ReadLine();
-                            string bookAuthor = Console.ReadLine();
-                            int bookYear = Convert.ToInt32(Console.ReadLine());
-                            Book book = new Book()
-                            {
-                                Title = bookName,
-                                Author = bookAuthor,
-                                Year = bookYear
-                            };
-                            r1.BorrowBook(book, library);
-                            break;
-                        
-                        default:
-                            Environment.Exit(0);
-                            break;
-                    }
-                }
-
-
-            }
-            else
-            {
-                Console.WriteLine("Please enter correct value (L/R)");
-            }
-            }
-           
         }
-        
     }
 
+    private static void RunLibrarianMenu(Library library)
+    {
+        Console.Write("Enter your name: ");
+        Librarian librarian = new(ReadRequiredText());
+
+        while (true)
+        {
+            Console.WriteLine("\nLibrarian menu: A) Add book  R) Remove book  D) Display books  B) Back");
+            switch (ReadChoice())
+            {
+                case 'A':
+                    librarian.AddBook(ReadBookDetails(), library);
+                    break;
+                case 'R':
+                    Console.Write("Enter the title to remove: ");
+                    librarian.RemoveBook(new Book { Title = ReadRequiredText() }, library);
+                    break;
+                case 'D':
+                    librarian.DisplayBooks(library);
+                    break;
+                case 'B':
+                    return;
+                default:
+                    Console.WriteLine("Choose A, R, D, or B.");
+                    break;
+            }
+        }
+    }
+
+    private static void RunRegularUserMenu(Library library)
+    {
+        Console.Write("Enter your name: ");
+        LibraryUser user = new(ReadRequiredText());
+        Console.WriteLine($"Welcome {user.Name}. Your library card number is {user.card.Number}.");
+
+        while (true)
+        {
+            Console.WriteLine("\nUser menu: D) Display available books  B) Borrow by title  V) View borrowed books  Q) Back");
+            switch (ReadChoice())
+            {
+                case 'D':
+                    user.DisplayBooks(library);
+                    break;
+                case 'B':
+                    Console.Write("Enter the title of the book to borrow: ");
+                    user.BorrowBook(new Book { Title = ReadRequiredText() }, library);
+                    break;
+                case 'V':
+                    user.DisplayBorrowedBooks(library);
+                    break;
+                case 'Q':
+                    return;
+                default:
+                    Console.WriteLine("Choose D, B, V, or Q.");
+                    break;
+            }
+        }
+    }
+
+    private static Book ReadBookDetails()
+    {
+        Console.Write("Book title: ");
+        string title = ReadRequiredText();
+
+        Console.Write("Book author: ");
+        string author = ReadRequiredText();
+
+        int year = ReadInteger("Publication year: ", 0, DateTime.Now.Year);
+
+        return new Book
+        {
+            Title = title,
+            Author = author,
+            Year = year
+        };
+    }
+
+    private static string ReadRequiredText()
+    {
+        while (true)
+        {
+            string value = Console.ReadLine()?.Trim() ?? string.Empty;
+            if (!string.IsNullOrWhiteSpace(value))
+                return value;
+
+            Console.Write("This value is required. Try again: ");
+        }
+    }
+
+    private static int ReadInteger(string prompt, int minimum, int maximum)
+    {
+        while (true)
+        {
+            Console.Write(prompt);
+            if (int.TryParse(Console.ReadLine(), out int value) &&
+                value >= minimum && value <= maximum)
+            {
+                return value;
+            }
+
+            Console.WriteLine($"Enter a whole number from {minimum} to {maximum}.");
+        }
+    }
+
+    private static char ReadChoice()
+    {
+        string input = Console.ReadLine()?.Trim() ?? string.Empty;
+        return input.Length == 0 ? '\0' : char.ToUpperInvariant(input[0]);
+    }
+}

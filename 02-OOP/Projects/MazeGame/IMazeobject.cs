@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace MAZE_GAME;
 
-namespace MAZE_GAME
+/// <summary>
+/// Common contract implemented by objects that can occupy a maze cell.
+/// </summary>
+public interface IMazeobject
 {
-    public interface IMazeobject
-
-    {
-        public char Icon { get; }
-        public bool IsSold { get; }
-
-    }
+    char Icon { get; }
+    bool IsSold { get; }
 }

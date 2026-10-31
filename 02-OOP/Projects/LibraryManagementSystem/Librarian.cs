@@ -1,24 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace Library_management_system;
 
-namespace Library_management_system
+/// <summary>
+/// A librarian manages the available book collection.
+/// </summary>
+internal sealed class Librarian : User
 {
-    internal class Librarian : User
+    public Librarian(string name)
     {
-        public Librarian(string name)
-        {
-            Name = name;
-        }
-        public int EmployeeNumber { get; set; }
-        public void AddBook(Book newbook , Library library)
-        {
-            library.Add(newbook);
-        }
-        public void RemoveBook(Book book, Library library) 
-        {
-            library.Remove(book);
-        }
+        Name = name;
+    }
 
+    public int EmployeeNumber { get; set; }
+
+    public void AddBook(Book newBook, Library library)
+    {
+        library.Add(newBook);
+    }
+
+    public void RemoveBook(Book book, Library library)
+    {
+        library.Remove(book);
     }
 }

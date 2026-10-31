@@ -1,107 +1,135 @@
+const int numberOfProducts = 50;
+const int detailsOfProduct = 3;
 
-
-using System.Threading.Channels;
-
-int numberOfProducts =50;
-int detailsOfProduct = 3;
-string[,] inventory =
-    new string[numberOfProducts, detailsOfProduct];
+string?[,] inventory = new string?[numberOfProducts, detailsOfProduct];
 int productCount = 0;
+
 while (true)
 {
-    Console.WriteLine("Welcome to the nventory System Enter your Choice" +
-    "\n------------------------------" +
-    "\n1.Add product" +
-    "\n2.Update product" +
-    "\n3.View product" +
-    "\n4.Exit ");
+    Console.WriteLine(
+        "Welcome to the Inventory System\n" +
+        "------------------------------\n" +
+        "1. Add product\n" +
+        "2. Update product quantity\n" +
+        "3. View products\n" +
+        "4. Exit");
 
-    
-    int choice = Convert.ToInt32(Console.ReadLine());
+    Console.Write("Choose an option: ");
+    if (!int.TryParse(Console.ReadLine(), out int choice))
+    {
+        Console.WriteLine("Please enter a valid menu number.");
+        continue;
+    }
+
     switch (choice)
     {
         case 1:
-            // Add product
-            Addproduct();
+            AddProduct();
             break;
         case 2:
-            // Update product
             UpdateProduct();
             break;
         case 3:
-            // View product
-            ViewProduct();
+            ViewProducts();
             break;
         case 4:
-            // Exit
-            Environment.Exit(0);
+            return;
+        default:
+            Console.WriteLine("Choose an option from 1 to 4.");
             break;
+    }
+}
 
+void AddProduct()
+{
+    if (productCount >= numberOfProducts)
+    {
+        Console.WriteLine($"Inventory is full. The limit is {numberOfProducts} products.");
+        return;
     }
 
-}
-void Addproduct()
-{
+    Console.Write("Enter product name: ");
+    string name = Console.ReadLine()?.Trim() ?? string.Empty;
+    if (string.IsNullOrWhiteSpace(name))
+    {
+        Console.WriteLine("Product name cannot be empty.");
+        return;
+    }
 
-    Console.WriteLine("Enter product name");
-    string name = Console.ReadLine();
+    Console.Write("Enter product quantity: ");
+    if (!int.TryParse(Console.ReadLine(), out int quantity) || quantity < 0)
+    {
+        Console.WriteLine("Quantity must be a non-negative whole number.");
+        return;
+    }
 
-    Console.WriteLine("Enter product quantity");
-    string quantity = Console.ReadLine();
-
-    Console.WriteLine("Enter product price");
-    string price = Console.ReadLine();
+    Console.Write("Enter product price: ");
+    if (!decimal.TryParse(Console.ReadLine(), out decimal price) || price < 0)
+    {
+        Console.WriteLine("Price must be a non-negative number.");
+        return;
+    }
 
     inventory[productCount, 0] = name;
-    inventory[productCount, 1] = quantity;
-    inventory[productCount, 2] = price;
+    inventory[productCount, 1] = quantity.ToString();
+    inventory[productCount, 2] = price.ToString("F2");
     productCount++;
-    Console.WriteLine("Product added successfuly");
-    Console.WriteLine("=========================");
+
+    Console.WriteLine("Product added successfully.");
 }
-void ViewProduct()
+
+void ViewProducts()
 {
-    if (productCount > 0)
+    if (productCount == 0)
     {
-        Console.WriteLine("Product list");
-        for (int i = 0; i < productCount; i++)
-        {
-            Console.WriteLine($"Product ID:{i} ,Product Name: {inventory[i, 0]} ,Product quantity  {inventory[i, 1]} ,Product price:{inventory[i, 2]} ");
-        }
+        Console.WriteLine("The inventory is empty.");
+        return;
+    }
+
+    Console.WriteLine("Product list");
+    Console.WriteLine("-------------");
+    for (int i = 0; i < productCount; i++)
+    {
+        Console.WriteLine(
+            $"ID: {i} | Name: {inventory[i, 0]} | " +
+            $"Quantity: {inventory[i, 1]} | Price: {inventory[i, 2]}");
     }
 }
 
-void UpdateProduct() 
+void UpdateProduct()
 {
-    Console.WriteLine("Enter product name to update");
-    string searchProduct = Console.ReadLine();
-    int productID = -1;
-
-    if (productCount > 0)
+    if (productCount == 0)
     {
-        for (int i = 0; i < productCount; i++)
-        {
-            if (inventory[i, 0] == searchProduct)
-            {
-                productID = i;
-                break;
-            }
-        }
-        if (productID != -1)
-        {
-            Console.WriteLine("Enter the new quantity");
-            string newquantity = Console.ReadLine();
-            inventory[productID, 1] = newquantity;
-            Console.WriteLine("quantity updated successful");
-        }
-        else
-        {
-            Console.WriteLine("product not found");
-        }
-
+        Console.WriteLine("There are no products to update.");
+        return;
     }
-    
 
+    Console.Write("Enter the product name to update: ");
+    string searchProduct = Console.ReadLine()?.Trim() ?? string.Empty;
+
+    int productId = -1;
+    for (int i = 0; i < productCount; i++)
+    {
+        if (string.Equals(inventory[i, 0], searchProduct, StringComparison.OrdinalIgnoreCase))
+        {
+            productId = i;
+            break;
+        }
+    }
+
+    if (productId == -1)
+    {
+        Console.WriteLine("Product not found.");
+        return;
+    }
+
+    Console.Write("Enter the new quantity: ");
+    if (!int.TryParse(Console.ReadLine(), out int newQuantity) || newQuantity < 0)
+    {
+        Console.WriteLine("Quantity must be a non-negative whole number.");
+        return;
+    }
+
+    inventory[productId, 1] = newQuantity.ToString();
+    Console.WriteLine("Quantity updated successfully.");
 }
-
-

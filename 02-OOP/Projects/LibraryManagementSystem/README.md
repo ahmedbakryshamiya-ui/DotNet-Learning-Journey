@@ -1,6 +1,6 @@
 # Library Management System
 
-A console-based library example using classes, inheritance, and basic relationships.
+A console-based library example using classes, inheritance, book storage, and basic object relationships.
 
 ## Run
 
@@ -22,19 +22,22 @@ dotnet run --project LibraryManagementSystem.csproj
 |---|---|
 | `User` | Abstract base type with a name and shared book-display operation. |
 | `Librarian` | Adds and removes books through the `Library` object. |
-| `LibraryUser` | Displays books, borrows a book, and has a `LibraryCard` field. |
-| `Library` | Stores book and borrowed-book arrays; provides display, add, remove, and borrow methods. |
+| `LibraryUser` | Displays available books, borrows by title, and has an initialized `LibraryCard`. |
+| `Library` | Stores available and borrowed book arrays; validates add, remove, and borrow operations. |
 | `Book` | Holds title, author, and year. |
-| `LibraryCard` | Holds a card number. |
+| `LibraryCard` | Holds a generated card number for the current application run. |
 
-## Review notes from the submitted source
+## Improvements made during review
 
-The source files are preserved from the uploaded project; these are review observations, not changes made during upload:
+- Empty input and invalid menu choices no longer cause an index error.
+- Book year input is validated.
+- Borrowing checks that the requested title is available and moves that book from the available list to the borrowed list.
+- The available and borrowed arrays enforce their capacity limits.
+- The user's library card is initialized and shown after registration.
+- Empty lists now display a helpful message.
 
-- A new `Library` starts with empty arrays, so a regular user has no books to view or borrow unless books were added earlier in the same run.
-- `Borrow(Book)` adds the supplied object to the borrowed array but does not check that the book is in the library or remove it from the available-book array.
-- `LibraryUser.card` is declared but is not initialized or used by the current console flow.
-- The menus use `ReadLine().ToUpper()[0]`; empty input can cause an indexing error. The year input uses `Convert.ToInt32`, which can throw on invalid text.
-- Book storage is fixed-size (100 available entries and 50 borrowed entries), and the records exist only in memory for the current run.
+## Remaining limitations
 
-The diagram documents relationships visible in the submitted classes. Arrow captions explain what each relationship means.
+- Book data is held in memory only and is lost when the program exits.
+- Storage has fixed limits: 100 available books and 50 borrowed books.
+- Borrowed books are tracked for the current run; there is no return-book workflow or persistent user database.

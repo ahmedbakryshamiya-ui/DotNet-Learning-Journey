@@ -1,59 +1,56 @@
-using System.Threading.Channels;
-
-
-string[] questions = new string[] 
+string[] questions =
 {
-    "1.what is the red Planet? ",
-    "2.what is the biggest country in the world",
+    "1. What is the Red Planet?",
+    "2. What is the biggest country in the world by area?",
     "3. What is the smallest country in the world?"
-
 };
 
-string[] answers = new string[] 
+string[] answers =
 {
     "Mars",
     "Russia",
     "Vatican"
 };
-int CorrectAnswer = 0;
 
-Console.WriteLine("Welcome to the Game" +
-    "\n---------------------------" +
-    "\nPlease answer the following question ");
+int correctAnswerCount = 0;
+
+Console.WriteLine(
+    "Welcome to the Quiz Game\n" +
+    "------------------------\n" +
+    "Answer the following questions.");
 
 for (int i = 0; i < questions.Length; i++)
 {
+    Console.WriteLine();
     Console.WriteLine(questions[i]);
-    string userAnswer= Console.ReadLine();
-    try
+    Console.Write("Your answer: ");
+    string userAnswer = Console.ReadLine() ?? string.Empty;
+
+    if (string.IsNullOrWhiteSpace(userAnswer))
     {
-        bool result = IsTheAnswerCorrect (userAnswer, answers[i]);
-        if (result == true)
-        {
-            Console.WriteLine("Correct answer ");
-            CorrectAnswer ++;
-        }
-        else
-            Console.WriteLine($"sorry, Incorrect answer, The correct answer is {answers[i]}");
+        Console.WriteLine($"No answer entered. The correct answer is {answers[i]}.");
+        continue;
     }
-    catch (Exception ex) { Console.WriteLine(ex.Message); }
-}
-Console.WriteLine("---------------------------" +
-    "\nQuiz completed ,Thank you for playing" +
-    $"\nYour score is {CorrectAnswer} of {questions.Length}");
 
- static bool IsTheAnswerCorrect(string userInput ,string correctAnswer)
+    if (IsTheAnswerCorrect(userAnswer, answers[i]))
+    {
+        Console.WriteLine("Correct answer!");
+        correctAnswerCount++;
+    }
+    else
+    {
+        Console.WriteLine($"Incorrect answer. The correct answer is {answers[i]}.");
+    }
+}
+
+Console.WriteLine("\n------------------------");
+Console.WriteLine("Quiz completed. Thank you for playing.");
+Console.WriteLine($"Your score is {correctAnswerCount} of {questions.Length}.");
+
+static bool IsTheAnswerCorrect(string userInput, string correctAnswer)
 {
-    if (string.IsNullOrEmpty(userInput))
-    { 
-        throw new Exception("Answer cant be empty");
-    }
-    return userInput == correctAnswer; // Easy way
-    /* if (userInput== correctAnswer) 
-         return true;
-
-       else
-         return false;*/
+    return string.Equals(
+        userInput.Trim(),
+        correctAnswer,
+        StringComparison.OrdinalIgnoreCase);
 }
-
-

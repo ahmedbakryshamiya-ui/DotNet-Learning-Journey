@@ -1,22 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace Library_management_system;
 
-namespace Library_management_system
+/// <summary>
+/// A regular user can browse available books and borrow them.
+/// </summary>
+internal sealed class LibraryUser : User
 {
-    internal class LibraryUser : User
-  
+    private static int _nextCardNumber = 1001;
+
+    public LibraryUser(string userName)
     {
-        public LibraryUser(string userName)
-        {
-            Name = userName;
-        }
-        public LibraryCard card;
-       
-        public void BorrowBook(Book book,Library library) 
-        {
-            library.Borrow(book);
-        }
-       
+        Name = userName;
+        card = new LibraryCard { Number = _nextCardNumber++ };
+    }
+
+    public LibraryCard card { get; }
+
+    public void BorrowBook(Book book, Library library)
+    {
+        library.Borrow(book);
+    }
+
+    public void DisplayBorrowedBooks(Library library)
+    {
+        library.DisplayBorrowed();
     }
 }

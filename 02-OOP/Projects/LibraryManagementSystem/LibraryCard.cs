@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace Library_management_system;
 
-namespace Library_management_system
+/// <summary>
+/// Identifies a registered library user.
+/// </summary>
+internal sealed class LibraryCard
 {
-    internal class LibraryCard
-    {
-        public int Number { get; set; }
-    }
+    public int Number { get; set; }
 }

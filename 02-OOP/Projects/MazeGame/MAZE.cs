@@ -1,107 +1,125 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+namespace MAZE_GAME;
 
-namespace MAZE_GAME
+/// <summary>
+/// Owns the maze grid, draws its cells, and moves the player through walkable spaces.
+/// </summary>
+public class MAZE
 {
-    public class MAZE
+    private readonly int _width;
+    private readonly int _height;
+    private readonly Charachter _character;
+    private readonly IMazeobject[,] _mazeObjectsArray;
+
+    public MAZE(int width, int height)
     {
-        private int _Width;
-        private int _Height;
-        private Charachter _Charachter;
-        private IMazeobject[,] _MazeobjectsArray;
+        if (width < 4)
+            throw new ArgumentOutOfRangeException(nameof(width), "Maze width must be at least 4.");
 
-        public MAZE(int width, int height)
+        if (height < 4)
+            throw new ArgumentOutOfRangeException(nameof(height), "Maze height must be at least 4.");
+
+        _width = width;
+        _height = height;
+        _mazeObjectsArray = new IMazeobject[width, height];
+        _character = new Charachter { X = 1, Y = 1 };
+    }
+
+    public bool HasWon { get; private set; }
+
+    public void MovePlayer()
+    {
+        if (HasWon)
+            return;
+
+        ConsoleKeyInfo userInput = Console.ReadKey(intercept: true);
+
+        switch (userInput.Key)
         {
-            _Height = height;
-            _Width = width;
-            _MazeobjectsArray = new IMazeobject[width, height];
-            _Charachter = new Charachter() 
-            {
-                X = 1,
-                Y = 1,
-            };
-
+            case ConsoleKey.UpArrow:
+                UpdatePlayer(0, -1);
+                break;
+            case ConsoleKey.DownArrow:
+                UpdatePlayer(0, 1);
+                break;
+            case ConsoleKey.LeftArrow:
+                UpdatePlayer(-1, 0);
+                break;
+            case ConsoleKey.RightArrow:
+                UpdatePlayer(1, 0);
+                break;
+            case ConsoleKey.Escape:
+                HasWon = true;
+                Console.WriteLine("\nGame closed.");
+                break;
         }
-        public void MovePlayer()
- 
+    }
+
+    private void UpdatePlayer(int dx, int dy)
+    {
+        int newX = _character.X + dx;
+        int newY = _character.Y + dy;
+
+        if (newX < 0 || newX >= _width || newY < 0 || newY >= _height)
+            return;
+
+        IMazeobject? destination = _mazeObjectsArray[newX, newY];
+        if (destination is null || destination.IsSold)
+            return;
+
+        _character.X = newX;
+        _character.Y = newY;
+
+        if (newX == _width - 1 && newY == _height - 2)
         {
-            var userInpot = Console.ReadKey(); // retarn ConsoleKeyInfo
-            var Key = userInpout.Key;
-            switch (Key)
-            {
-                case ConsoleKey.UpArrow:
-                    UpdatePlayer(0,-1);
-                    break;
-                case ConsoleKey.DownArrow:
-                    UpdatePlayer(0,1);
-                    break;
-                case ConsoleKey.LeftArrow:
-                    UpdatePlayer(-1,0);
-                    break;
-                case ConsoleKey.RightArrow:
-                    UpdatePlayer(1, 0);
-                    break;
-
-            }
-
+            HasWon = true;
+            Drawmaze();
+            Console.WriteLine("\nYou reached the exit. You won!");
+            return;
         }
 
-        private void UpdatePlayer(int dx ,int dy)
-        {
-            int newX = _Charachter.X + dx;
-            int newY = _Charachter.Y + dy;
+        Drawmaze();
+    }
 
-            if (newX <_Width && newX >=0 && newY < _Height && newY >= 0 && _MazeobjectsArray[newX,newY]).IsSold == false)
-            {
-                _Charachter.X = newX;
-                _Charachter.Y = newY;
-                Drawmaze();
-            }
-        }
+    public void Drawmaze()
+    {
+        Console.Clear();
 
-        public void Drawmaze() 
+        for (int y = 0; y < _height; y++)
         {
-            Console.Clear();
-            for (int y = 0;  y< _Height; y++)
+            for (int x = 0; x < _width; x++)
             {
-                for (int x = 0; x < _Width; x++)
+                if (x == _character.X && y == _character.Y)
                 {
-                    // Outer walls & Exit
-                    if (x == _Width -1 && y == _Height -2)
-                    {
-                        _MazeobjectsArray[x, y] = new Empty_space();
-                        Console.Write(_MazeobjectsArray[x, y].Icon);
-                    }
-                 
-                   else if (x == 0 || y == 0 || x == _Width - 1 || y == _Height - 1)
-                    {
-                        _MazeobjectsArray[x, y] = new Wall();
-                        Console.Write(_MazeobjectsArray[x, y].Icon);
-                    }
-                    else if (x == _Charachter.X && y == _Charachter.Y)
-                    {
-                        Console.Write(_Charachter.Icon);
-                    }
-                    else if (x %3 ==0 && y % 3 == 0)
-                    {
-                        _MazeobjectsArray[x, y] = new Wall();
-                        Console.Write(_MazeobjectsArray[x, y].Icon);
-                    }
-                    else if (x % 5 == 0 && y % 5 == 0)
-                    {
-                        _MazeobjectsArray[x, y] = new Wall();
-                        Console.Write(_MazeobjectsArray[x, y].Icon);
-                    }
-
-                    else // Empty spaces
-                    {
-                        _MazeobjectsArray[x, y] = new Empty_space();
-                        Console.Write(_MazeobjectsArray[x, y].Icon);
-                    }
+                    // Keep the player's current cell marked as walkable for the next move.
+                    _mazeObjectsArray[x, y] = new Empty_space();
+                    Console.Write(_character.Icon);
                 }
-                Console.WriteLine();
+                else if (x == _width - 1 && y == _height - 2)
+                {
+                    _mazeObjectsArray[x, y] = new Empty_space();
+                    Console.Write('E');
+                }
+                else if (x == 0 || y == 0 || x == _width - 1 || y == _height - 1)
+                {
+                    _mazeObjectsArray[x, y] = new Wall();
+                    Console.Write(_mazeObjectsArray[x, y].Icon);
+                }
+                else if ((x % 3 == 0 && y % 3 == 0) ||
+                         (x % 5 == 0 && y % 5 == 0))
+                {
+                    _mazeObjectsArray[x, y] = new Wall();
+                    Console.Write(_mazeObjectsArray[x, y].Icon);
+                }
+                else
+                {
+                    _mazeObjectsArray[x, y] = new Empty_space();
+                    Console.Write(_mazeObjectsArray[x, y].Icon);
+                }
             }
+
+            Console.WriteLine();
         }
+
+        Console.WriteLine("Use arrow keys to move. Reach E to win; press Esc to quit.");
     }
 }
