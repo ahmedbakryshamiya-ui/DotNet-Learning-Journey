@@ -1,8 +1,11 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// await is asynchronous and non-blocking; Task.Result blocks the calling thread.
+/// await asynchronously waits for a Task without blocking the current thread while the operation is incomplete. Task<TResult>.Result synchronously blocks the caller until the task completes and can cause deadlocks in some synchronization contexts; prefer await in asynchronous code.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/asynchronous-programming/
+/// </remarks>
 public static class AsyncVsResult
 {
     // The console menu is synchronous, so it waits for this teaching demo to finish.
@@ -11,10 +14,12 @@ public static class AsyncVsResult
     private static async Task RunAsync()
     {
         Console.WriteLine(".Result (blocking):");
+        // Result waits synchronously for completion and blocks this calling thread.
         string blockingResult = GetMessageAsync().Result;
         Console.WriteLine(blockingResult);
 
         Console.WriteLine("\nawait (asynchronous):");
+        // await yields control while the task is incomplete, then resumes with its result.
         string awaitedResult = await GetMessageAsync();
         Console.WriteLine(awaitedResult);
 
