@@ -1,18 +1,23 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Classes are reference types; structs are value types.
-/// This example compares assignment behavior and summarizes the main language differences.
+/// A class is a reference type, while a struct is a value type. This affects assignment and parameter passing, but it does not mean that every class object is always on the heap or every struct is always on the stack; storage depends on context and runtime implementation.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/structs
+/// </remarks>
 public static class ClassVsStruct
 {
     public static void Run()
     {
+        // Walkthrough: A class is a reference type, while a struct is a value type. This affects assignment and parameter passing, but it does not mean that every class object is always on the heap or every struct is always on the stack; storage depends on context and runtime implementation.
         CounterClass classFirst = new() { Value = 10 };
+        // This copies the reference, so both variables refer to the same CounterClass object.
         CounterClass classSecond = classFirst;
         classSecond.Value = 20;
 
         CounterStruct structFirst = new() { Value = 10 };
+        // This copies the struct value, so structSecond is independent from structFirst.
         CounterStruct structSecond = structFirst;
         structSecond.Value = 20;
 
