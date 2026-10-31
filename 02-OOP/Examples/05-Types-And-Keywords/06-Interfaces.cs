@@ -1,12 +1,17 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// An interface defines a contract that implementing classes must provide.
+/// An interface defines a contract through members such as methods and properties. A class or struct that implements an interface supplies the required implementations, allowing callers to use the object through the interface type.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/interfaces
+/// </remarks>
 public static class Interfaces
 {
     public static void Run()
     {
+        // Walkthrough: An interface defines a contract through members such as methods and properties. A class or struct that implements an interface supplies the required implementations, allowing callers to use the object through the interface type.
+        // The variable is typed as the interface, so code depends on the contract rather than the class.
         IAccountFees current = new CurrentAccount { OpenAccount = 150m };
         IAccountFees savings = new SavingsAccount { OpenAccount = 200m };
 

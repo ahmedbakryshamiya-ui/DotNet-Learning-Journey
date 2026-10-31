@@ -1,12 +1,16 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// An enum stores a fixed set of named values.
+/// An enum is a value type consisting of a set of named constants. By default its underlying integral type is int, but another integral type can be specified; each member has an associated underlying numeric value.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
+/// </remarks>
 public static class Enumerations
 {
     public static void Run()
     {
+        // Walkthrough: An enum is a value type consisting of a set of named constants. By default its underlying integral type is int, but another integral type can be specified; each member has an associated underlying numeric value.
         PersonRecord first = new()
         {
             PersonName = "Ahmed",
@@ -21,6 +25,7 @@ public static class Enumerations
         Display(second);
 
         Console.WriteLine(Months.January);
+        // Casting exposes the numeric value associated with the named enum constant.
         Console.WriteLine((byte)Months.January);
 
         foreach (Months month in Enum.GetValues<Months>())
@@ -35,6 +40,7 @@ public static class Enumerations
     }
 }
 
+// byte is explicitly selected as the enum's underlying integral type.
 public enum Months : byte
 {
     January = 1,

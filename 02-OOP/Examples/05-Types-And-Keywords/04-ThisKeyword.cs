@@ -1,13 +1,18 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// The this keyword refers to the current object instance.
+/// Within an instance member, this refers to the current instance. It can distinguish an instance member from a parameter with the same name and can pass the current object to another method.
 /// </summary>
+/// <remarks>
+/// Microsoft Learn: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/this
+/// </remarks>
 public static class ThisKeyword
 {
     public static void Run()
     {
+        // Walkthrough: Within an instance member, this refers to the current instance. It can distinguish an instance member from a parameter with the same name and can pass the current object to another method.
         EmployeeWithOvertime employee = new("Ahmed", Country.Palestine, 5000m);
+        // The current employee object is passed to Overtime.Calculate through this.
         employee.ShowEmployee();
     }
 }
@@ -16,6 +21,7 @@ public class EmployeeWithOvertime
 {
     public EmployeeWithOvertime(string name, Country country, decimal salary)
     {
+        // this.Name identifies the instance property, while name is the constructor parameter.
         this.Name = name;
         this.Country = country;
         this.Salary = salary;
