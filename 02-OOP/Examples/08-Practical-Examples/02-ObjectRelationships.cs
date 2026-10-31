@@ -18,12 +18,12 @@ public static class ObjectRelationships
         ReportService reportService = new();
         reportService.PrintDepartmentName(department);
 
-        Console.WriteLine("\\n2. AGGREGATION — weak has-a");
+        Console.WriteLine("\n2. AGGREGATION — weak has-a");
         Console.WriteLine("An object keeps a reference to an independently created object.");
         EmployeeMember employee = new("Ahmed", department);
         employee.ShowDepartment();
 
-        Console.WriteLine("\\n3. COMPOSITION — strong owns-a");
+        Console.WriteLine("\n3. COMPOSITION — strong owns-a");
         Console.WriteLine("An object creates and privately owns one of its parts.");
         CompanyWithDepartments company = new("Example Company");
         company.ShowOwnedDepartment();
