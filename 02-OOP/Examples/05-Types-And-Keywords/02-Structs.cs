@@ -1,23 +1,23 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// A struct is a value type that can contain data, properties, constructors, and methods.
+/// A struct is a value type. It can contain properties, methods, and constructors.
 /// </summary>
 public static class Structs
 {
     public static void Run()
     {
-        EmployeeRecord employee = new("Ahmed", 20);
+        Employee employee = new("Ahmed", 20);
         employee.DisplayTimeSheet();
 
-        Console.WriteLine($"Name: {employee.EmployeeName}");
-        Console.WriteLine($"Age: {employee.EmployeeAge}");
+        Console.WriteLine($"Employee name: {employee.EmployeeName}");
+        Console.WriteLine($"Employee age: {employee.EmployeeAge}");
     }
 }
 
-public struct EmployeeRecord
+public struct Employee
 {
-    public EmployeeRecord(string name, int age)
+    public Employee(string name, int age)
     {
         EmployeeName = name;
         EmployeeAge = age;
@@ -28,6 +28,6 @@ public struct EmployeeRecord
 
     public void DisplayTimeSheet()
     {
-        Console.WriteLine("Displaying employee time sheet.");
+        Console.WriteLine("TimeSheet method is inside the struct.");
     }
 }

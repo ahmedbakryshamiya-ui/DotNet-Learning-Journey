@@ -1,14 +1,13 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// IDisposable gives a type a predictable way to release resources.
-/// The example uses the same using pattern as the original CurrencyService lesson.
+/// IDisposable gives a type a predictable way to release disposable resources.
 /// </summary>
 public static class DisposePattern
 {
     public static void Run()
     {
-        Console.WriteLine("Using statement (recommended):");
+        Console.WriteLine("The using statement is the recommended way to dispose this service.");
 
         using (CurrencyService service = new())
         {
@@ -22,7 +21,6 @@ public static class DisposePattern
             {
                 try
                 {
-                    // Demonstrates awaiting a real HTTP request.
                     string data = service.GetCurrenciesAsync().GetAwaiter().GetResult();
                     Console.WriteLine(data[..Math.Min(data.Length, 500)]);
                 }
@@ -35,15 +33,16 @@ public static class DisposePattern
                     Console.WriteLine("The request timed out or was cancelled.");
                 }
             }
-        } // Dispose runs automatically, even if an exception occurs.
+        } // Dispose is called automatically, including when an exception occurs.
     }
 }
 
 /// <summary>
-/// A service that owns an HttpClient, which is itself an IDisposable managed resource.
-/// No finalizer is needed for this managed-resource-only example.
+/// A service that owns an HttpClient.
+/// The Dispose(bool) pattern is shown for teaching; no finalizer is needed because
+/// HttpClient is a managed IDisposable resource and this type owns no raw unmanaged handle.
 /// </summary>
-public sealed class CurrencyService : IDisposable
+public class CurrencyService : IDisposable
 {
     private bool _disposed;
     private readonly HttpClient _httpClient = new();
@@ -51,18 +50,28 @@ public sealed class CurrencyService : IDisposable
     public async Task<string> GetCurrenciesAsync()
     {
         ObjectDisposedException.ThrowIf(_disposed, this);
-
         const string url = "https://coinbase.com/api/v2/currencies";
         return await _httpClient.GetStringAsync(url);
     }
 
-    public void Dispose()
+    protected virtual void Dispose(bool disposing)
     {
         if (_disposed)
             return;
 
-        _httpClient.Dispose();
+        if (disposing)
+        {
+            // Release managed disposable resources.
+            _httpClient.Dispose();
+        }
+
+        // Release unmanaged resources here if the class owns any.
         _disposed = true;
+    }
+
+    public void Dispose()
+    {
+        Dispose(true);
         GC.SuppressFinalize(this);
     }
 }

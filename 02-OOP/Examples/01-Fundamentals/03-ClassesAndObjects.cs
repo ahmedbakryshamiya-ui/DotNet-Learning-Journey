@@ -1,20 +1,19 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// A class defines data and behavior; an object is an instance of that class.
+/// A class is a blueprint; an object is an instance containing its own data.
 /// </summary>
 public static class ClassesAndObjects
 {
     public static void Run()
     {
-        Person person = new()
-        {
-            FirstName = "Ahmed",
-            LastName = "Bakry",
-            Country = "Egypt",
-            BirthDay = new DateOnly(2000, 1, 1)
-        };
+        Person person = new();
+        person.FirstName = "Ahmed";
+        person.LastName = "Bakry";
+        person.Country = "Egypt";
+        person.BirthDay = new DateOnly(2000, 1, 1);
 
+        Console.WriteLine(person.FirstName);
         Console.WriteLine($"{person.FirstName} {person.LastName}");
         Console.WriteLine(person.Country);
         Console.WriteLine($"Birthday: {person.BirthDay}");
@@ -23,9 +22,34 @@ public static class ClassesAndObjects
 
 public class Person
 {
-    // Properties expose the data of the object.
-    public string FirstName { get; set; } = string.Empty;
-    public string LastName { get; set; } = string.Empty;
-    public DateOnly BirthDay { get; set; }
-    public string Country { get; set; } = string.Empty;
+    // Private fields hold the object's internal data.
+    private string _firstName = string.Empty;
+    private string _lastName = string.Empty;
+    private string _country = string.Empty;
+    private DateOnly _birthDay;
+
+    // Properties provide controlled access to the private fields.
+    public string FirstName
+    {
+        get => _firstName;
+        set => _firstName = value;
+    }
+
+    public string LastName
+    {
+        get => _lastName;
+        set => _lastName = value;
+    }
+
+    public DateOnly BirthDay
+    {
+        get => _birthDay;
+        set => _birthDay = value;
+    }
+
+    public string Country
+    {
+        get => _country;
+        set => _country = value;
+    }
 }

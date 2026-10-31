@@ -8,9 +8,9 @@ public static class DocumentationComments
     public static void Run()
     {
         Point point = new(1, 2, 3);
-        Point moved = point.Translate(2, 3, 4);
+        point.Translate(2, 3, 4);
 
-        Console.WriteLine($"Moved point: ({moved.X}, {moved.Y}, {moved.Z})");
+        Console.WriteLine($"Moved point: ({point.X}, {point.Y}, {point.Z})");
     }
 }
 
@@ -26,19 +26,20 @@ public class Point
         Z = z;
     }
 
-    public int X { get; }
-    public int Y { get; }
-    public int Z { get; }
+    public int X { get; private set; }
+    public int Y { get; private set; }
+    public int Z { get; private set; }
 
     /// <summary>
-    /// Returns a new point translated by the supplied offsets.
+    /// Moves the current point by the supplied x, y, and z offsets.
     /// </summary>
     /// <param name="x">Horizontal offset.</param>
     /// <param name="y">Vertical offset.</param>
     /// <param name="z">Depth offset.</param>
-    /// <returns>The translated point.</returns>
-    public Point Translate(int x, int y, int z)
+    public void Translate(int x, int y, int z)
     {
-        return new Point(X + x, Y + y, Z + z);
+        X += x;
+        Y += y;
+        Z += z;
     }
 }
