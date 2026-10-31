@@ -1,0 +1,132 @@
+using System.Text;
+
+namespace OOPLearning.Examples;
+
+/// <summary>
+/// Demonstrates three ways to release resources that implement IDisposable:
+/// manual Dispose, try/finally, and the using statement.
+/// </summary>
+public static class DisposePattern
+{
+    /// <summary>
+    /// Runs the three disposal examples and writes their output to temporary files.
+    /// </summary>
+    public static void Run()
+    {
+        string folder = Path.Combine(Path.GetTempPath(), "OOP-Learning-IDisposable");
+        Directory.CreateDirectory(folder);
+
+        Console.WriteLine("IDisposable: three ways to release a resource");
+        Console.WriteLine("---------------------------------------------");
+
+        ManualDisposeExample(Path.Combine(folder, "manual.txt"));
+        TryFinallyExample(Path.Combine(folder, "try-finally.txt"));
+        UsingStatementExample(Path.Combine(folder, "using.txt"));
+
+        Console.WriteLine($"Demo files are stored in: {folder}");
+    }
+
+    /// <summary>
+    /// Shows direct resource cleanup by calling Dispose manually.
+    /// </summary>
+    private static void ManualDisposeExample(string path)
+    {
+        Console.WriteLine("\n1. Manual Dispose:");
+
+        // Create an object that owns a FileStream (a disposable resource).
+        TextFileResource resource = new(path);
+
+        // Use the resource before releasing it.
+        resource.Write("Disposed by calling Dispose() manually.");
+
+        // The caller is responsible for calling Dispose.
+        resource.Dispose();
+
+        // Calling Dispose again is safe because the class makes disposal idempotent.
+        resource.Dispose();
+    }
+
+    /// <summary>
+    /// Uses finally to guarantee that Dispose is called after the try block.
+    /// </summary>
+    private static void TryFinallyExample(string path)
+    {
+        Console.WriteLine("\n2. try/finally:");
+
+        // Create the resource before entering the try block.
+        TextFileResource resource = new(path);
+
+        try
+        {
+            // Work with the resource; cleanup still happens if this code throws.
+            resource.Write("Disposed from the finally block.");
+        }
+        finally
+        {
+            // finally runs whether the try block succeeds or throws an exception.
+            resource.Dispose();
+        }
+    }
+
+    /// <summary>
+    /// Uses a using statement to dispose the resource automatically at the end of its scope.
+    /// </summary>
+    private static void UsingStatementExample(string path)
+    {
+        Console.WriteLine("\n3. using statement:");
+
+        // C# automatically calls Dispose when execution leaves this using block,
+        // including when an exception occurs.
+        using (TextFileResource resource = new(path))
+        {
+            resource.Write("Disposed automatically by the using statement.");
+        }
+    }
+}
+
+/// <summary>
+/// Owns a FileStream and exposes a small method for writing UTF-8 text.
+/// This class implements IDisposable so callers can release the file handle explicitly.
+/// </summary>
+public sealed class TextFileResource : IDisposable
+{
+    private readonly FileStream _stream;
+    private bool _disposed;
+
+    /// <summary>
+    /// Creates or overwrites a file and opens it for writing.
+    /// </summary>
+    public TextFileResource(string path)
+    {
+        _stream = new FileStream(path, FileMode.Create, FileAccess.Write);
+        Console.WriteLine($"Opened: {Path.GetFileName(path)}");
+    }
+
+    /// <summary>
+    /// Converts text to UTF-8 bytes and writes them to the open file stream.
+    /// </summary>
+    public void Write(string text)
+    {
+        // Prevent callers from writing after the resource has been disposed.
+        ObjectDisposedException.ThrowIf(_disposed, this);
+
+        byte[] data = Encoding.UTF8.GetBytes(text);
+        _stream.Write(data);
+        Console.WriteLine("Text written.");
+    }
+
+    /// <summary>
+    /// Releases the FileStream and therefore releases its operating-system file handle.
+    /// </summary>
+    public void Dispose()
+    {
+        // Dispose can safely be called more than once.
+        if (_disposed)
+            return;
+
+        _stream.Dispose();
+        _disposed = true;
+
+        Console.WriteLine("FileStream disposed.");
+    }
+}
