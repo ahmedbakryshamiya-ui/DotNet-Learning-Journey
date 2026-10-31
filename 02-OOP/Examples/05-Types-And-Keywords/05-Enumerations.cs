@@ -1,71 +1,87 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Enums represent a fixed set of named constants.
+/// An enum stores a fixed set of named values.
 /// </summary>
 public static class Enumerations
 {
     public static void Run()
     {
-        PersonProfile first = new()
+        person first = new()
         {
             PersonName = "Ahmed",
-            Country = PersonCountry.Palestine,
-            Language = Language.Arabic,
-            Month = Month.January
+            Contre = Contre.Palestine,
+            language = Language.Arabic,
+            months = Months.January
         };
 
-        PersonProfile second = new("Ali", PersonCountry.Syria, Language.Arabic, Month.February);
+        person second = new("Ali", Contre.Syria, Language.Arabic, Months.February);
 
         Display(first);
         Display(second);
 
-        Console.WriteLine($"January numeric value: {(byte)Month.January}");
+        Console.WriteLine(Months.January);
+        Console.WriteLine((byte)Months.January);
 
-        foreach (Month month in Enum.GetValues<Month>())
+        foreach (Months month in Enum.GetValues<Months>())
             Console.WriteLine($"{month}: {(byte)month}");
     }
 
-    private static void Display(PersonProfile person)
+    private static void Display(person value)
     {
         Console.WriteLine(
-            $"Name: {person.PersonName}, Country: {person.Country}, " +
-            $"Language: {person.Language}, Month: {person.Month}");
+            $"Person Name: {value.PersonName}, Country: {value.Contre}, " +
+            $"Language: {value.language}, Month: {value.months}");
     }
 }
 
-public enum Month : byte
+public enum Months : byte
 {
-    January = 1, February, March, April, May, June,
-    July, August, September, October, November, December
+    January = 1,
+    February = 2,
+    March = 3,
+    April = 4,
+    May = 5,
+    June = 6,
+    July = 7,
+    August = 8,
+    September = 9,
+    October = 10,
+    November = 11,
+    December = 12
 }
 
-public enum PersonCountry
+public enum Contre
 {
-    Egypt, Syria, Iraq, Palestine
+    Egypt,
+    Syria,
+    Iraq,
+    Palestine
 }
 
 public enum Language
 {
-    Arabic, English, German
+    Arabic,
+    English,
+    German
 }
 
-public class PersonProfile
+public class person
 {
-    public PersonProfile()
+    public string PersonName { get; set; } = string.Empty;
+    public Contre Contre { get; set; }
+    public Language language { get; set; }
+    public Months months { get; set; }
+
+    public person()
     {
     }
 
-    public PersonProfile(string name, PersonCountry country, Language language, Month month)
+    public person(string name, Contre country, Language lang, Months month)
     {
         PersonName = name;
-        Country = country;
-        Language = language;
-        Month = month;
+        Contre = country;
+        language = lang;
+        months = month;
     }
-
-    public string PersonName { get; set; } = string.Empty;
-    public PersonCountry Country { get; set; }
-    public Language Language { get; set; }
-    public Month Month { get; set; }
 }

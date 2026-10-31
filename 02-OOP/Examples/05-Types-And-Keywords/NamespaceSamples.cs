@@ -1,31 +1,53 @@
-namespace OOPLearning.Examples.Banking
+namespace Bank
 {
     public class BankAccount
     {
-        public string Description => "OOPLearning.Examples.Banking.BankAccount";
+        public string AccountNumber { get; set; } = string.Empty;
+        public int MyProperty { get; set; }
+
+        public BankAccount()
+        {
+            Console.WriteLine("Bank Account is created");
+        }
     }
 }
 
-namespace OOPLearning.Examples.Clients
+namespace Clinet
 {
     public class Person
     {
-        public string Description => "OOPLearning.Examples.Clients.Person";
+        public string PersonName { get; set; } = string.Empty;
+        public int PersonID { get; set; }
+
+        public Person()
+        {
+            Console.WriteLine("Person account is created");
+        }
     }
 }
 
-namespace OOPLearning.Examples.ParentNameSpace
+namespace ParentNameSpace
 {
     public class ParentNameSpaceClass
     {
-        public string Description => "ParentNameSpaceClass";
+        public string ParentName { get; set; } = string.Empty;
+
+        public ParentNameSpaceClass()
+        {
+            Console.WriteLine("Parent is here");
+        }
     }
 
     namespace SonNameSpace
     {
         public class SonNameSpaceClass
         {
-            public string Description => "SonNameSpaceClass";
+            public string SonName { get; set; } = string.Empty;
+
+            public SonNameSpaceClass()
+            {
+                Console.WriteLine("Son is here");
+            }
         }
     }
 }

@@ -1,19 +1,21 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// PartialClasses demonstrates a class whose members are split across source files.
+/// A partial class lets one type be split across several files.
 /// </summary>
 public static class PartialClasses
 {
     public static void Run()
     {
-        Employee employee = new()
+        OOP.Employee employee = new()
         {
             EmployeeName = "Ahmed",
-            EmployeeNumber = 1
+            EmployeeNumber = 1,
+            Employeegob = "Software Developer"
         };
 
-        Console.WriteLine($"{employee.EmployeeName} - {employee.EmployeeNumber}");
-        Console.WriteLine($"Salary: {employee.CalculateSalary():C}");
+        Console.WriteLine(
+            $"{employee.EmployeeName} - {employee.EmployeeNumber} - " +
+            $"{employee.Employeegob} - Salary: {employee.CalculateSalary():C}");
     }
 }

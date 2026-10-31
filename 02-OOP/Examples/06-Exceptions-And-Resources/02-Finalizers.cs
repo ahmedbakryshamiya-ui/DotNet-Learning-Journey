@@ -1,7 +1,8 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// A finalizer can run when the garbage collector reclaims an object. Its timing is not deterministic.
+/// A finalizer may run when the garbage collector reclaims an object.
+/// Its timing is not deterministic, so do not rely on it for normal resource cleanup.
 /// </summary>
 public static class Finalizers
 {
@@ -9,23 +10,29 @@ public static class Finalizers
     {
         CreateTemporaryObject();
 
-        // Forced collection is shown for learning only; normal applications should not force GC.
+        // Forced collection is used only to make this learning demonstration visible.
         GC.Collect();
         GC.WaitForPendingFinalizers();
 
         Console.WriteLine("Finalizer demonstration finished.");
+        Console.WriteLine("For predictable cleanup, prefer IDisposable and using.");
     }
 
     private static void CreateTemporaryObject()
     {
-        _ = new FinalizableSample();
+        _ = new EmployeeWithFinalizer();
     }
 }
 
-public class FinalizableSample
+public class EmployeeWithFinalizer
 {
-    ~FinalizableSample()
+    public EmployeeWithFinalizer()
     {
-        Console.WriteLine("Finalizer called by the garbage collector.");
+        Console.WriteLine("Constructor is called.");
+    }
+
+    ~EmployeeWithFinalizer()
+    {
+        Console.WriteLine("Finalizer / destructor is called by the garbage collector.");
     }
 }

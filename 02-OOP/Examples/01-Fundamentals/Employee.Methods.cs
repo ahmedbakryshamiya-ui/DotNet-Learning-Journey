@@ -1,9 +1,22 @@
-namespace OOPLearning.Examples;
+namespace OOP;
 
 /// <summary>
-/// Another part of Employee contains its behavior.
+/// The methods part of Employee, separated from its properties.
 /// </summary>
-public partial class Employee
+internal partial class Employee
 {
-    public decimal CalculateSalary() => 5000m;
+    public Employee()
+    {
+        Console.WriteLine("Employee object is created.");
+    }
+
+    public void DisplayTimeSheet()
+    {
+        Console.WriteLine($"Displaying time sheet for {EmployeeName}.");
+    }
+
+    public decimal CalculateSalary()
+    {
+        return 250000m;
+    }
 }

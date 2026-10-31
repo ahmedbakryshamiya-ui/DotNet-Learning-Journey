@@ -1,11 +1,14 @@
-namespace OOPLearning.Examples;
+namespace OOP;
 
 /// <summary>
-/// One part of Employee contains its properties.
-/// Both parts must use the same namespace and type name.
+/// The properties part of Employee. The original lesson used this partial class
+/// in a separate source file from its methods.
 /// </summary>
-public partial class Employee
+internal partial class Employee
 {
-    public string EmployeeName { get; set; } = string.Empty;
     public int EmployeeNumber { get; set; }
+    public string EmployeeName { get; set; } = string.Empty;
+
+    // Kept with the original lesson's property name.
+    public string Employeegob { get; set; } = string.Empty;
 }

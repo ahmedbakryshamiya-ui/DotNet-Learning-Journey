@@ -1,19 +1,25 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// await lets an asynchronous operation complete without blocking its asynchronous method.
+/// await is asynchronous and non-blocking; Task.Result blocks the calling thread.
 /// </summary>
 public static class AsyncVsResult
 {
-    // The menu is synchronous, so this small wrapper waits for the async demonstration to finish.
+    // The console menu is synchronous, so it waits for this teaching demo to finish.
     public static void Run() => RunAsync().GetAwaiter().GetResult();
 
     private static async Task RunAsync()
     {
-        string message = await GetMessageAsync();
-        Console.WriteLine(message);
+        Console.WriteLine(".Result (blocking):");
+        string blockingResult = GetMessageAsync().Result;
+        Console.WriteLine(blockingResult);
 
-        // Avoid blocking patterns such as GetMessageAsync().Result in normal async code.
+        Console.WriteLine("\nawait (asynchronous):");
+        string awaitedResult = await GetMessageAsync();
+        Console.WriteLine(awaitedResult);
+
+        Console.WriteLine("\nPrefer await in modern asynchronous code.");
+        Console.WriteLine("Result blocks while waiting and can cause deadlocks in some synchronization contexts.");
     }
 
     private static async Task<string> GetMessageAsync()

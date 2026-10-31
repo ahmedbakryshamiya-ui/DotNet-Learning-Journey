@@ -1,47 +1,67 @@
 namespace OOPLearning.Examples;
 
 /// <summary>
-/// Runtime polymorphism lets different derived objects respond to the same virtual method.
+/// Polymorphism means one base type can represent objects with different implementations.
 /// </summary>
 public static class Polymorphism
 {
     public static void Run()
     {
-        BasicShape[] shapes =
+        Shape[] shapes =
         {
             new Circle(),
             new Triangle(),
             new Line(),
-            new BasicShape()
+            new Shape()
         };
 
-        foreach (BasicShape shape in shapes)
+        foreach (Shape shape in shapes)
             shape.Draw();
 
-        Console.WriteLine("Compile-time polymorphism is also demonstrated by method overloading.");
+        Console.WriteLine("Compile-time polymorphism: method overloading.");
+        WelcomeGuest();
+        WelcomeGuest("Ahmed");
+    }
+
+    private static void WelcomeGuest()
+    {
+        Console.WriteLine("How can I help you?");
+    }
+
+    private static void WelcomeGuest(string name)
+    {
+        Console.WriteLine($"Good day {name}, how can I help you?");
     }
 }
 
-public class BasicShape
+public class Shape
 {
-    public virtual void Draw() => Console.WriteLine("A basic shape is drawn.");
-}
-
-public class Shape : BasicShape
-{
+    public virtual void Draw()
+    {
+        Console.WriteLine("A basic shape is created.");
+    }
 }
 
 public class Circle : Shape
 {
-    public override void Draw() => Console.WriteLine("A circle is drawn.");
+    public override void Draw()
+    {
+        Console.WriteLine("A circle is created.");
+    }
 }
 
 public class Triangle : Shape
 {
-    public override void Draw() => Console.WriteLine("A triangle is drawn.");
+    public override void Draw()
+    {
+        Console.WriteLine("A triangle is created.");
+    }
 }
 
 public class Line : Shape
 {
-    public override void Draw() => Console.WriteLine("A line is drawn.");
+    public override void Draw()
+    {
+        Console.WriteLine("A line is created.");
+    }
 }
