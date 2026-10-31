@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="620" viewBox="0 0 1180 620" role="img" aria-labelledby="title desc">
+<title id="title">C# Basics isometric learning map</title>
+<desc id="desc">Eight isometric blocks represent the topic groups in the C# Basics project.</desc>
+<defs>
+  <linearGradient id="background" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#dbeafe"/></linearGradient>
+  <filter id="shadow" x="-25%" y="-25%" width="150%" height="160%"><feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#0f172a" flood-opacity=".18"/></filter>
+</defs>
+<rect width="1180" height="620" rx="28" fill="url(#background)"/>
+<text x="590" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="27" font-weight="bold" fill="#0f172a">C# BASICS · LEARNING MAP</text>
+<g filter="url(#shadow)">
+  <polygon points="430,82 720,82 752,108 462,108" fill="#0f172a"/>
+  <polygon points="430,82 462,108 462,166 430,140" fill="#1e293b"/>
+  <polygon points="462,108 752,108 752,166 462,166" fill="#334155"/>
+  <text x="607" y="132" text-anchor="middle" font-family="Arial,sans-serif" font-size="23" font-weight="bold" fill="white">01 · C# BASICS</text>
+  <text x="607" y="153" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#cbd5e1">33 topic examples · 8 learning groups</text>
+</g>
+<g fill="none" stroke="#94a3b8" stroke-width="4" stroke-linejoin="round">
+  <path d="M590 166 V206 H170 V252 M590 206 H450 V252 M590 206 H730 V252 M590 206 H1010 V252"/>
+  <path d="M590 166 V420 H170 V455 M590 420 H450 V455 M590 420 H730 V455 M590 420 H1010 V455"/>
+</g>
+<g filter="url(#shadow)" font-family="Arial,sans-serif" text-anchor="middle" font-weight="bold" fill="white">
+  <g><polygon points="70,252 270,252 290,270 90,270" fill="#60a5fa"/><polygon points="70,252 90,270 90,342 70,324" fill="#1d4ed8"/><polygon points="90,270 290,270 290,342 90,342" fill="#2563eb"/><text x="190" y="300" font-size="16">01 · Data Types</text><text x="190" y="322" font-size="14">&amp; Conversions</text></g>
+  <g><polygon points="350,252 550,252 570,270 370,270" fill="#c4b5fd"/><polygon points="350,252 370,270 370,342 350,324" fill="#5b21b6"/><polygon points="370,270 570,270 570,342 370,342" fill="#7c3aed"/><text x="470" y="310" font-size="17">02 · Strings</text></g>
+  <g><polygon points="630,252 830,252 850,270 650,270" fill="#5eead4"/><polygon points="630,252 650,270 650,342 630,324" fill="#115e59"/><polygon points="650,270 850,270 850,342 650,342" fill="#0f766e"/><text x="750" y="310" font-size="17">03 · Date &amp; Time</text></g>
+  <g><polygon points="910,252 1110,252 1130,270 930,270" fill="#fdba74"/><polygon points="910,252 930,270 930,342 910,324" fill="#9a3412"/><polygon points="930,270 1130,270 1130,342 930,342" fill="#ea580c"/><text x="1030" y="300" font-size="16">04 · Input</text><text x="1030" y="322" font-size="14">&amp; Operators</text></g>
+  <g><polygon points="70,455 270,455 290,473 90,473" fill="#fda4af"/><polygon points="70,455 90,473 90,545 70,527" fill="#9f1239"/><polygon points="90,473 290,473 290,545 90,545" fill="#be123c"/><text x="190" y="503" font-size="16">05 · Conditions</text><text x="190" y="525" font-size="14">&amp; Validation</text></g>
+  <g><polygon points="350,455 550,455 570,473 370,473" fill="#a5b4fc"/><polygon points="350,455 370,473 370,545 350,527" fill="#3730a3"/><polygon points="370,473 570,473 570,545 370,545" fill="#4f46e5"/><text x="470" y="503" font-size="16">06 · Loops</text><text x="470" y="525" font-size="14">&amp; Patterns</text></g>
+  <g><polygon points="630,455 830,455 850,473 650,473" fill="#86efac"/><polygon points="630,455 650,473 650,545 630,527" fill="#166534"/><polygon points="650,473 850,473 850,545 650,545" fill="#15803d"/><text x="750" y="513" font-size="17">07 · Mathematics</text></g>
+  <g><polygon points="910,455 1110,455 1130,473 930,473" fill="#cbd5e1"/><polygon points="910,455 930,473 930,545 910,527" fill="#334155"/><polygon points="930,473 1130,473 1130,545 930,545" fill="#475569"/><text x="1030" y="513" font-size="17">08 · Arrays</text></g>
+</g>
+<text x="590" y="590" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#475569">The clickable topic links are listed in README.md below the map.</text>
+</svg>
