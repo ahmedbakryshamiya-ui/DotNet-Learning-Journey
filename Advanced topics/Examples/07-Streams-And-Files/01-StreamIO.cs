@@ -11,7 +11,7 @@ public static class StreamIO
     public static void Run()
     {
         // Walkthrough: A stream is an abstraction for reading and writing bytes. FileStream reads and writes file bytes; StreamWriter converts characters to bytes using an encoding, and StreamReader converts bytes into characters. Dispose streams when finished so file handles and buffers are released.
-        string folder = Path.Combine(Path.GetTempPath(), "OOP-Learning-Streams");
+        string folder = Path.Combine(Path.GetTempPath(), "Advanced-Learning-Streams");
         Directory.CreateDirectory(folder);
 
         string firstPath = Path.Combine(folder, "stream-example-1.txt");

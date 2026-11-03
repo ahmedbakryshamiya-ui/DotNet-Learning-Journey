@@ -16,7 +16,7 @@ public static class DisposePattern
     public static void Run()
     {
         // Walkthrough: IDisposable provides a deterministic cleanup method named Dispose for releasing resources such as file handles. Manual Dispose and try/finally are valid patterns; using is usually preferred because the compiler ensures Dispose is called when control leaves the scope, including exceptional exits.
-        string folder = Path.Combine(Path.GetTempPath(), "OOP-Learning-IDisposable");
+        string folder = Path.Combine(Path.GetTempPath(), "Advanced-Learning-IDisposable");
         Directory.CreateDirectory(folder);
 
         Console.WriteLine("IDisposable: three ways to release a resource");

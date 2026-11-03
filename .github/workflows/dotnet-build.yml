@@ -22,8 +22,8 @@ jobs:
             project: 01-Basics/01-Basics.csproj
           - name: OOP learning menu
             project: 02-OOP/OOP.csproj
-          - name: Advanced C# - Streams and Files
-            project: 03-Advanced-CSharp/Advanced-CSharp.csproj
+          - name: Advanced topics - Streams and Files
+            project: Advanced topics/Advanced-CSharp.csproj
           - name: Currency Converter
             project: 01-Basics/Projects/CurrencyConverter/CurrencyConverter.csproj
           - name: Inventory Management System

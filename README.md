@@ -93,11 +93,11 @@ Learn C# step by step through small, focused examples.
 - [Library Management System](02-OOP/Projects/LibraryManagementSystem/README.md) — [Editable diagram](02-OOP/Projects/LibraryManagementSystem/LibraryManagementSystem.drawio)
 - [Maze Game](02-OOP/Projects/MazeGame/README.md) — [Editable diagram](02-OOP/Projects/MazeGame/MazeGame.drawio)
 
-- [03 — Advanced C#](03-Advanced-CSharp/README.md)
+- [03 — Advanced topics](Advanced%20topics/README.md)
   - **Streams and Files**
-    - [Stream I/O](03-Advanced-CSharp/Examples/07-Streams-And-Files/01-StreamIO.cs)
-    - [Finalizers and Destructors](03-Advanced-CSharp/Examples/07-Streams-And-Files/04-Finalizers.cs)
-    - [IDisposable and Dispose](03-Advanced-CSharp/Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs)
-    - [DeflateStream](03-Advanced-CSharp/Examples/07-Streams-And-Files/02-DeflateStream.cs)
+    - [Stream I/O](Advanced%20topics/Examples/07-Streams-And-Files/01-StreamIO.cs)
+    - [Finalizers and Destructors](Advanced%20topics/Examples/07-Streams-And-Files/04-Finalizers.cs)
+    - [IDisposable and Dispose](Advanced%20topics/Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs)
+    - [DeflateStream](Advanced%20topics/Examples/07-Streams-And-Files/02-DeflateStream.cs)
 
 Open a topic to view its explanation and C# example.

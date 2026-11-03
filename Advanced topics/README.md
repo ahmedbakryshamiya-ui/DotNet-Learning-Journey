@@ -1,4 +1,4 @@
-# Advanced C#
+# Advanced topics
 
 ## Streams and Files
 
@@ -6,10 +6,10 @@ This section contains the Streams and Files topics moved from the OOP learning p
 
 ### Run
 
-Open [Advanced-CSharp.slnx](Advanced-CSharp.slnx) in Visual Studio, or run:
+Open [Advanced-CSharp.slnx](Advanced-CSharp.slnx) in Visual Studio, or run this command from the repository root:
 
 ```bash
-dotnet run --project Advanced-CSharp.csproj
+dotnet run --project "Advanced topics/Advanced-CSharp.csproj"
 ```
 
 Choose one of the four lessons from the console menu.
