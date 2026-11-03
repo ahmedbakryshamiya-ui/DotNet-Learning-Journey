@@ -84,11 +84,6 @@ Learn C# step by step through small, focused examples.
     - [Exception Handling](02-OOP/Examples/06-Exceptions-And-Resources/01-ExceptionHandling.cs)
     - [Documentation Comments](02-OOP/Examples/06-Exceptions-And-Resources/03-DocumentationComments.cs)
     - [Async vs .Result](02-OOP/Examples/06-Exceptions-And-Resources/05-AsyncVsResult.cs)
-  - **Streams and Files**
-    - [Stream I/O](02-OOP/Examples/07-Streams-And-Files/01-StreamIO.cs)
-    - [Finalizers and Destructors](02-OOP/Examples/07-Streams-And-Files/04-Finalizers.cs)
-    - [IDisposable and Dispose](02-OOP/Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs)
-    - [DeflateStream](02-OOP/Examples/07-Streams-And-Files/02-DeflateStream.cs)
   - **Practical Examples**
     - [Bank Account Example](02-OOP/Examples/08-Practical-Examples/01-BankAccountExample.cs)
     - [Object Relationships](02-OOP/Examples/08-Practical-Examples/02-ObjectRelationships.cs)
@@ -99,5 +94,10 @@ Learn C# step by step through small, focused examples.
 - [Maze Game](02-OOP/Projects/MazeGame/README.md) — [Editable diagram](02-OOP/Projects/MazeGame/MazeGame.drawio)
 
 - [03 — Advanced C#](03-Advanced-CSharp/README.md)
+  - **Streams and Files**
+    - [Stream I/O](03-Advanced-CSharp/Examples/07-Streams-And-Files/01-StreamIO.cs)
+    - [Finalizers and Destructors](03-Advanced-CSharp/Examples/07-Streams-And-Files/04-Finalizers.cs)
+    - [IDisposable and Dispose](03-Advanced-CSharp/Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs)
+    - [DeflateStream](03-Advanced-CSharp/Examples/07-Streams-And-Files/02-DeflateStream.cs)
 
 Open a topic to view its explanation and C# example.

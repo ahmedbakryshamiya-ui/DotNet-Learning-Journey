@@ -79,15 +79,6 @@ Choose a topic from the console menu, or open its source file below.
 | [Documentation Comments](Examples/06-Exceptions-And-Resources/03-DocumentationComments.cs) | XML comments for IDE help and generated docs. |
 | [Async vs .Result](Examples/06-Exceptions-And-Resources/05-AsyncVsResult.cs) | Blocking .Result compared with await. |
 
-### Streams and Files
-
-| Topic | What it covers |
-|---|---|
-| [Stream I/O](Examples/07-Streams-And-Files/01-StreamIO.cs) | FileStream byte examples, StreamWriter, StreamReader, and File helpers. |
-| [Finalizers and Destructors](Examples/07-Streams-And-Files/04-Finalizers.cs) | Garbage-collector finalization, its nondeterministic timing, and why IDisposable is preferred for predictable cleanup. |
-| [IDisposable and Dispose](Examples/07-Streams-And-Files/03-IDisposableAndDispose.cs) | Three resource-cleanup patterns: manual Dispose, try/finally, and using. |
-| [DeflateStream](Examples/07-Streams-And-Files/02-DeflateStream.cs) | Compressing and restoring data. |
-
 ### Object Relationships
 
 These terms are used in UML class diagrams to describe relationships between types. They are design concepts, not C# keywords. Microsoft defines an association as a relationship between classifiers, aggregation as shared ownership, and composition as a whole-part relationship. See [Microsoft Learn: class-diagram relationships](https://learn.microsoft.com/en-us/visualstudio/modeling/scenario-change-your-design-using-visualization-and-modeling?view=visualstudio).
