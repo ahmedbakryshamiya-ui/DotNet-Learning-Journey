@@ -1,0 +1,3 @@
+using AdvancedCSharp;
+
+AdvancedCSharpMenu.Run();
