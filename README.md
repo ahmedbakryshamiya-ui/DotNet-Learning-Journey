@@ -99,20 +99,5 @@ Learn C# step by step through small, focused examples.
 - [Maze Game](02-OOP/Projects/MazeGame/README.md) — [Editable diagram](02-OOP/Projects/MazeGame/MazeGame.drawio)
 
 - [03 — Advanced C#](03-Advanced-CSharp/README.md)
-  - [Generics](03-Advanced-CSharp/Examples/01-Generics/Generics.cs)
-  - [Delegates](03-Advanced-CSharp/Examples/02-Delegates/Delegates.cs)
-  - [Events](03-Advanced-CSharp/Examples/03-Events/Events.cs)
-  - [Lambda Expressions](03-Advanced-CSharp/Examples/04-Lambdas/LambdaExpressions.cs)
-  - [LINQ](03-Advanced-CSharp/Examples/05-LINQ/LinqQueries.cs)
-  - [Generic Collections](03-Advanced-CSharp/Examples/06-Collections/GenericCollections.cs)
-  - [Iterators and yield](03-Advanced-CSharp/Examples/07-Iterators/Iterators.cs)
-  - [Records](03-Advanced-CSharp/Examples/08-Records/Records.cs)
-  - [Pattern Matching](03-Advanced-CSharp/Examples/09-PatternMatching/PatternMatching.cs)
-  - [Async and Tasks](03-Advanced-CSharp/Examples/10-AsyncTasks/AsyncTasks.cs)
-  - [Cancellation](03-Advanced-CSharp/Examples/11-Cancellation/CancellationExamples.cs)
-  - [Asynchronous Streams](03-Advanced-CSharp/Examples/12-AsyncStreams/AsyncStreams.cs)
-  - [Attributes and Reflection](03-Advanced-CSharp/Examples/13-Reflection/ReflectionExamples.cs)
-  - [Span and Memory](03-Advanced-CSharp/Examples/14-SpanMemory/SpanMemory.cs)
-
 
 Open a topic to view its explanation and C# example.
